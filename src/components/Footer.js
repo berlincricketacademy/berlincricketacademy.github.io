@@ -1,25 +1,31 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
 
-import logo from '../img/logo.svg'
-import facebook from '../img/social/facebook.svg'
-import instagram from '../img/social/instagram.svg'
-import twitter from '../img/social/twitter.svg'
-import vimeo from '../img/social/vimeo.svg'
+import logo from '../img/logo.svg';
+import banner from '../img/banner.png';
+import facebook from '../img/social/facebook.svg';
+import instagram from '../img/social/instagram.svg';
+import twitter from '../img/social/twitter.svg';
+import vimeo from '../img/social/vimeo.svg';
 
 const Footer = class extends React.Component {
   render() {
     return (
-      <footer className="footer has-background-black has-text-white-ter">
+      <footer
+        className="footer"
+        style={{
+          background: 'linear-gradient(#fff, #e1e1e1)',
+          boxShadow: '0 0 16px 0 rgba(0, 0, 0, 0.08)',
+        }}
+      >
         <div className="content has-text-centered">
-          <img
-            src={logo}
-            alt="Kaldi"
-            style={{ width: '14em', height: '10em' }}
-          />
+          <img src={logo} alt="BCA" style={{ width: '14em', height: '10em' }} />
         </div>
-        <div className="content has-text-centered has-background-black has-text-white-ter">
-          <div className="container has-background-black has-text-white-ter">
+        {/* <div className="content has-text-centered">
+          <img src={banner} alt="Cricket for all" />
+        </div> */}
+        <div className="content has-text-centered">
+          <div className="container">
             <div style={{ maxWidth: '100vw' }} className="columns">
               <div className="column is-4">
                 <section className="menu">
@@ -35,24 +41,9 @@ const Footer = class extends React.Component {
                       </Link>
                     </li>
                     <li>
-                      <Link className="navbar-item" to="/products">
-                        Products
+                      <Link className="navbar-item" to="/features">
+                        Features
                       </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact/examples">
-                        Form Examples
-                      </Link>
-                    </li>
-                    <li>
-                      <a
-                        className="navbar-item"
-                        href="/admin/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Admin
-                      </a>
                     </li>
                   </ul>
                 </section>
@@ -107,9 +98,22 @@ const Footer = class extends React.Component {
             </div>
           </div>
         </div>
+        <div className="content has-text-centered">
+          Icons made by{' '}
+          <a
+            href="https://www.flaticon.com/authors/smashicons"
+            title="Smashicons"
+          >
+            Smashicons
+          </a>{' '}
+          from{' '}
+          <a href="https://www.flaticon.com/" title="Flaticon">
+            www.flaticon.com
+          </a>
+        </div>
       </footer>
-    )
+    );
   }
-}
+};
 
-export default Footer
+export default Footer;

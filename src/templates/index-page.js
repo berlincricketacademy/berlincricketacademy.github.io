@@ -5,6 +5,7 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Features from '../components/Features';
 import BlogRoll from '../components/BlogRoll';
+import Hero from '../components/Hero';
 
 export const IndexPageTemplate = ({
   image,
@@ -16,6 +17,7 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <div>
+    <Hero heading={heading} subheading={subheading} />
     <div
       className="full-width-image margin-top-0"
       style={{
@@ -24,6 +26,7 @@ export const IndexPageTemplate = ({
         })`,
         backgroundAttachment: `fixed`,
         backgroundSize: `cover`,
+        display: 'none',
       }}
     >
       <div
@@ -87,8 +90,8 @@ export const IndexPageTemplate = ({
                 <Features gridItems={intro.blurbs} />
                 <div className="columns">
                   <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
+                    <Link className="btn" to="/features">
+                      See all features
                     </Link>
                   </div>
                 </div>

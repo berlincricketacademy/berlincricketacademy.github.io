@@ -38,6 +38,7 @@ const Navbar = class extends React.Component {
         className="navbar is-transparent"
         role="navigation"
         aria-label="main-navigation"
+        style={{ boxShadow: '0 0 16px 0 rgba(0, 0, 0, 0.08)' }}
       >
         <div className="container">
           <div className="navbar-brand">
@@ -45,7 +46,7 @@ const Navbar = class extends React.Component {
               <img
                 src={logo}
                 alt="BCA"
-                style={{ maxHeight: '88px', height: '88px' }}
+                style={{ maxHeight: '10rem', height: '10rem' }}
               />
             </Link>
             {/* Hamburger menu */}
@@ -67,17 +68,14 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/about">
                 About
               </Link>
-              <Link className="navbar-item" to="/products">
-                Products
+              <Link className="navbar-item" to="/features">
+                Features
               </Link>
               <Link className="navbar-item" to="/blog">
                 Blog
               </Link>
               <Link className="navbar-item" to="/contact">
                 Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
               </Link>
             </div>
             <div className="navbar-end has-text-centered">
