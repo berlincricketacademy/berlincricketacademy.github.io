@@ -10,8 +10,39 @@ $primary-invert: $kaldi-red-invert
 $body-color: #333
 $black: #2b2523
 
+.navbar .navbar-brand img:hover
+  transform: scale(1.2)
+
 .navbar .navbar-menu
   box-shadow: none !important
+
+.navbar .navbar-menu:before
+  content: ""
+  vertical-align: top
+  display: inline-block
+  transform-origin: top right
+  transform: skew(-40deg)
+  position: absolute
+  top: 50px
+
+.navbar .navbar-menu:before
+  height: 70px
+  width: 100%
+  border-radius: 20px
+  background: #ffcb3c
+
+.navbar .navbar-menu:after
+  height: 20px
+  width: 20px
+  margin-left: -1px
+  background: linear-gradient(to right, #ffea54, #ff5757)
+
+.navbar .navbar-menu .navbar-item
+  font-weight: bold
+  font-size: larger
+
+.navbar .navbar-menu .navbar-item:hover
+  color: #ff5757
 
 .content .taglist
   list-style: none

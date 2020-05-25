@@ -5,7 +5,6 @@ import { Link, graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Features from '../components/Features';
 import BlogRoll from '../components/BlogRoll';
-import Hero from '../components/Hero';
 
 export const IndexPageTemplate = ({
   image,
@@ -17,7 +16,6 @@ export const IndexPageTemplate = ({
   intro,
 }) => (
   <div>
-    <Hero heading={heading} subheading={subheading} />
     <div
       className="full-width-image margin-top-0"
       style={{
@@ -71,34 +69,14 @@ export const IndexPageTemplate = ({
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
                 <div className="columns">
                   <div className="column is-12">
-                    <h3 className="has-text-weight-semibold is-size-2">
-                      {heading}
-                    </h3>
-                    <p>{description}</p>
+                    <p style={{ fontSize: '1.2em' }}>{description}</p>
                   </div>
                 </div>
                 <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/features">
-                      See all features
-                    </Link>
-                  </div>
-                </div>
                 <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
+                  <h3 className="has-text-weight-semibold is-size-2">NEWS</h3>
                   <BlogRoll />
                   <div className="column is-12 has-text-centered">
                     <Link className="btn" to="/blog">
@@ -131,7 +109,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
-    <Layout>
+    <Layout heading={frontmatter.heading} subheading={frontmatter.subheading}>
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}

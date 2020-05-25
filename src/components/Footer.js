@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import logo from '../img/logo.svg';
-import banner from '../img/banner.png';
+// import logo from '../img/logo.svg';
 import facebook from '../img/social/facebook.svg';
 import instagram from '../img/social/instagram.svg';
 import twitter from '../img/social/twitter.svg';
@@ -18,11 +17,8 @@ const Footer = class extends React.Component {
           boxShadow: '0 0 16px 0 rgba(0, 0, 0, 0.08)',
         }}
       >
-        <div className="content has-text-centered">
-          <img src={logo} alt="BCA" style={{ width: '14em', height: '10em' }} />
-        </div>
         {/* <div className="content has-text-centered">
-          <img src={banner} alt="Cricket for all" />
+          <img src={logo} alt="BCA" style={{ width: '14em', height: '10em' }} />
         </div> */}
         <div className="content has-text-centered">
           <div className="container">

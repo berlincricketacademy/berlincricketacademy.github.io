@@ -5,38 +5,31 @@ image: /img/teaser.jpg
 heading: Cricket for all
 subheading: A cricket academy for Berlin amateurs
 mainpitch:
-  title: Why BCA
+  title: Berlin Cricket Academy -
   description: >
-    Kaldi is the coffee store for everyone who believes that great coffee
-    shouldn't just taste good, it should do good too. We source all of our beans
-    directly from small scale sustainable farmers and make sure part of the
-    profits are reinvested in their communities.
-description: Kaldi is the ultimate spot for coffee lovers who want to learn
-  about their java’s origin and support the farmers that grew it. We take coffee
-  production, roasting and brewing seriously and we’re glad to pass that
-  knowledge to anyone.
+    for both that have played the game and those
+    that have never picked up a bat before!
+description: Berlin Cricket Academy is all about "Developing Talent & Enhancing
+  Performance". We aim to create a platform and environment from which
+  cricket becomes one of the most accessible sports for women & youth at
+  grassroots level in Germany.
 intro:
   blurbs:
     - image: /img/cricket.png
       text: >
-        We sell green and roasted coffee beans that are sourced directly from
-        independent farmers and farm cooperatives. We’re proud to offer a
-        variety of coffee beans grown with great care for the environment and
-        local communities. Check our post or contact us directly for current
-        availability.
+        Berlin Cricket Academy aims to create unforgettable and empowering
+        sporting experiences for females and youths of all ages, abilities and
+        backgrounds.
     - image: /img/player.png
       text: >
-        We offer a small, but carefully curated selection of brewing gear and
-        tools for every taste and experience level. No matter if you roast your
-        own beans or just bought your first french press, you’ll find a gadget
-        to fall in love with in our shop.
+        BCA has a high quality coaching team dedicated to inspiring women and
+        boys/girls to enjoy cricket at all levels and to take on all challenges both on
+        and off the sporting field.
     - image: /img/trophy.png
       text: >
-        Love a great cup of coffee, but never knew how to make one? Bought a
-        fancy new Chemex but have no clue how to use it? Don't worry, we’re here
-        to help. You can schedule a custom 1-on-1 consultation with our baristas
-        to learn anything you want to know about coffee roasting and brewing.
-        Email us or call the store for details.
+        BCA aspires to be the go-to coaching initiative for all female
+        and youth players and coaches within the game and beyond, building
+        confidence and forging lasting friendships both on and off the field.
   heading: What we offer
   description: >
     Kaldi is the ultimate spot for coffee lovers who want to learn about their
