@@ -145,7 +145,7 @@ const Navbar = class extends React.Component {
                   style={{ width: '1em', height: '1em' }}
                 />
               </a>
-              <a title="sponsor" className="navbar-item" href="">
+              <a title="sponsor" className="navbar-item" href="/soon">
                 SPONSOR
               </a>
             </div>

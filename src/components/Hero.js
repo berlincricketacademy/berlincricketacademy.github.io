@@ -5,14 +5,7 @@ import hero from '../img/all.svg';
 const Hero = ({ heading, subheading }) => (
   <div className="container">
     <div className="container columns">
-      <div
-        className="column is-offset-1"
-        style={
-          {
-            // alignSelf: 'center',
-          }
-        }
-      >
+      <div className="column is-offset-1">
         <h1
           className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
           style={{
@@ -33,7 +26,12 @@ const Hero = ({ heading, subheading }) => (
           {subheading}
         </h2>
       </div>
-      <img className="column" src={hero} alt="Cricket for all" />
+      <img
+        className="column"
+        src={hero}
+        alt="Cricket for all"
+        style={{ position: 'relative', top: '-100px' }}
+      />
     </div>
   </div>
 );

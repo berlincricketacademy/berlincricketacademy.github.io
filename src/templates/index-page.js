@@ -63,7 +63,7 @@ export const IndexPageTemplate = ({
         </h3>
       </div>
     </div>
-    <section className="section section--gradient">
+    <section className="section section--gradient" style={{ paddingTop: 0 }}>
       <div className="container">
         <div className="section">
           <div className="columns">
@@ -71,7 +71,11 @@ export const IndexPageTemplate = ({
               <div className="content">
                 <div className="columns">
                   <div className="column is-12">
-                    <p style={{ fontSize: '1.2em' }}>{description}</p>
+                    <article class="message is-dark">
+                      <div class="message-body" style={{ fontSize: '1.2em' }}>
+                        {description}
+                      </div>
+                    </article>
                   </div>
                 </div>
                 <Features gridItems={intro.blurbs} />
