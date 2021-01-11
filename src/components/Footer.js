@@ -1,116 +1,70 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import logo from '../img/logo.svg';
-import facebook from '../img/social/facebook.svg';
-import instagram from '../img/social/instagram.svg';
-import twitter from '../img/social/twitter.svg';
-import vimeo from '../img/social/vimeo.svg';
+import Social from '../components/Social';
+import ContactForm from '../pages/contact/form';
+import PageSection from '../components/PageSection';
 
 const Footer = class extends React.Component {
   render() {
     return (
-      <footer
-        className="footer"
-        style={{
-          background: 'linear-gradient(to right,  #fff, #ffea54, #feaa2b)',
-          boxShadow: '0 0 16px 0 rgba(0, 0, 0, 0.08)',
-        }}
-      >
-        <div className="content has-text-centered">
+      <>
+        <section className="section">
           <div className="container">
-            <div style={{ maxWidth: '100vw' }} className="columns">
-              <div className="column is-4 social">
-                <div className="content has-text-centered">
-                  <img
-                    src={logo}
-                    alt="BCA"
-                    style={{ width: '14em', height: '10em' }}
-                  />
+            <PageSection title="CONTACT US" subTitle="For enquiries, to learn more about us, get new updates and give us feedback">
+              <article className="message">
+                <div className="message-body" style={{ fontSize: '1.2em' }}>
+                  We will begin operations asap life returns to normalcy from COVID. Until then, stay safe, stay healthy!
                 </div>
-                <a title="facebook" href="https://facebook.com">
-                  <img
-                    src={facebook}
-                    alt="Facebook"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-                <a title="twitter" href="https://twitter.com">
-                  <img
-                    className="fas fa-lg"
-                    src={twitter}
-                    alt="Twitter"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-                <a title="instagram" href="https://instagram.com">
-                  <img
-                    src={instagram}
-                    alt="Instagram"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
+              </article>
+              <div className="contact-grid card">
+                <div className="contact-grid-item contact-details">
+                  <h1 className="contact-details-title is-spaced">BERLIN CRICKET ACADEMY</h1>
+                  <p>
+                    <span className="icon-text">
+                      <span className="icon">
+                        <i className={`fas fa-map-marker-alt`} />
+                      </span>
+                      <span className="is-size-5">Mitte, 10179 - Berlin, Germany</span>
+                    </span>
+                  </p>
+                  <p>
+                    <span className="icon-text">
+                      <span className="icon">
+                        <i className={`fas fa-envelope-square`} />
+                      </span>
+                      <span className="is-size-5">contact@berlincricketacademy.com</span>
+                    </span>
+                  </p>
+                  <p>
+                    <span className="icon-text">
+                      <span className="icon">
+                        <i className={`fas fa-phone`} />
+                      </span>
+                      <span className="is-size-5">+49 152 27672304</span>
+                    </span>
+                  </p>
+                </div>
+                <div className="contact-grid-item contact-form">
+                  <ContactForm />
+                </div>
               </div>
-              <div className="column is-4">
-                <section className="menu">
-                  <ul className="menu-list">
-                    <li>
-                      <Link to="/" className="navbar-item">
-                        Home
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/blog">
-                        News
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/about">
-                        Information
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact">
-                        Contact
-                      </Link>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4">
-                <section>
-                  <ul className="menu-list">
-                    <li>
-                      <Link className="navbar-item" to="/soon">
-                        Teams
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/soon">
-                        Shop
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/soon">
-                        Gallery
-                      </Link>
-                    </li>
-                  </ul>
-                </section>
+            </PageSection>
+          </div>
+        </section>  
+        <footer
+          className="footer bg-primary-light card"
+        >
+          <div className="container">
+            <div style={{display: 'flex', justifyContent: 'space-between', padding: '2rem 0'}}>
+              <Social />
+              <div className="content has-text-centered has-text-weight-semibold">
+                {`${new Date().getFullYear()} by Berlin Cricket Academy`}
               </div>
             </div>
           </div>
-        </div>
-        <div className="content has-text-centered">
-          Icons made by{' '}
-          <a
-            href="https://www.flaticon.com/authors/smashicons"
-            title="Smashicons"
-          >
-            Smashicons
-          </a>
-        </div>
-      </footer>
+        </footer>
+      </>
     );
   }
 };

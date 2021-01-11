@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import facebook from '../img/social/facebook.svg';
-import instagram from '../img/social/instagram.svg';
-import twitter from '../img/social/twitter.svg';
 import logo from '../img/logo.svg';
+import Social from '../components/Social';
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -68,19 +66,16 @@ const Navbar = class extends React.Component {
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
             <div
-              className="navbar-start has-text-centered"
-              style={{
-                marginRight: '0',
-                justifyContent: 'space-between',
-              }}
+              className="navbar-end"
+              
             >
               <Link className="navbar-item" to="/blog">
                 NEWS
               </Link>
-              <Link className="navbar-item" to="/soon">
+              <Link className="navbar-item" to="/teams">
                 TEAMS
               </Link>
-              <Link className="navbar-item" to="/soon">
+              <Link className="navbar-item" to="/shop">
                 SHOP
               </Link>
               <Link className="navbar-item" to="/soon">
@@ -92,63 +87,18 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/about">
                 INFORMATION
               </Link>
-              <Link className="navbar-item" to="/contact">
+              {/* <Link className="navbar-item" to="/contact">
                 CONTACT
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                <button
-                  className="button is-rounded"
-                  style={{
-                    backgroundColor: '#ff5757',
-                    borderColor: '#ff5757',
-                    color: 'white',
-                    fontWeight: 'bold',
-                    fontSize: 'larger',
-                  }}
-                >
-                  JOIN
-                </button>
-              </Link>
+              </Link> */}
             </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                title="facebook"
-                className="navbar-item"
-                href="https://facebook.com"
+            <Social />
+            <Link className="navbar-item" to="/contact">
+              <button
+                className="button is-rounded bca-button-primary"
               >
-                <img
-                  src={facebook}
-                  alt="Facebook"
-                  style={{ width: '1em', height: '1em' }}
-                />
-              </a>
-              <a
-                title="twitter"
-                className="navbar-item"
-                href="https://twitter.com"
-              >
-                <img
-                  className="fas fa-lg"
-                  src={twitter}
-                  alt="Twitter"
-                  style={{ width: '1em', height: '1em' }}
-                />
-              </a>
-              <a
-                title="instagram"
-                className="navbar-item"
-                href="https://instagram.com"
-              >
-                <img
-                  src={instagram}
-                  alt="Instagram"
-                  style={{ width: '1em', height: '1em' }}
-                />
-              </a>
-              <a title="sponsor" className="navbar-item" href="/soon">
-                SPONSOR
-              </a>
-            </div>
+                CONTACT US
+              </button>
+            </Link>
           </div>
         </div>
       </nav>

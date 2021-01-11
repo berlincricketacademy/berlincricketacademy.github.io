@@ -2,17 +2,14 @@
 templateKey: index-page
 title: Cricket for all
 image: /img/teaser.jpg
-heading: Cricket for all
-subheading: A cricket academy for Berlin amateurs
+heading: WELCOME TO BERLIN CRICKET ACADEMY
+subheading: TEAMWORK, PERSEVERANCE, SPORTSMANSHIP
 mainpitch:
   title: Berlin Cricket Academy -
   description: >
     for both that have played the game and those
     that have never picked up a bat before!
-description: Berlin Cricket Academy is all about "Developing Talent & Enhancing
-  Performance". We aim to create a platform and environment from which
-  cricket becomes one of the most accessible sports for women & youth at
-  grassroots level in Germany.
+description: Our facilities aren't available due to COVID rules and regulations. We regret the inconvenience. Stay safe, stay healthy!
 intro:
   blurbs:
     - image: /img/cricket.png

@@ -1,9 +1,8 @@
 @import "~bulma/sass/utilities/initial-variables"
 
-// Config vars
-// Kaldi logo brand color: #FD461E
-$kaldi-red: #f44335
+$kaldi-red: rgba(185, 22, 28, 1)
 $kaldi-red-invert: #fff
+$primary-light: #fbebec
 
 $primary: $kaldi-red
 $primary-invert: $kaldi-red-invert
@@ -16,33 +15,33 @@ $black: #2b2523
 .navbar .navbar-menu
   box-shadow: none !important
 
-.navbar .navbar-menu:before
-  content: ""
-  vertical-align: top
-  display: inline-block
-  transform-origin: top right
-  transform: skew(-40deg)
-  position: absolute
-  top: 50px
+// .navbar .navbar-menu:before
+//   content: ""
+//   vertical-align: top
+//   display: inline-block
+//   transform-origin: top right
+//   transform: skew(-40deg)
+//   position: absolute
+//   top: 50px
 
-.navbar .navbar-menu:before
-  height: 70px
-  width: 100%
-  border-radius: 20px
-  background: #ffcb3c
+// .navbar .navbar-menu:before
+//   height: 70px
+//   width: 100%
+//   border-radius: 20px
+//   background: #ffcb3c
 
-.navbar .navbar-menu:after
-  height: 20px
-  width: 20px
-  margin-left: -1px
-  background: linear-gradient(to right, #ffea54, #ff5757)
+// .navbar .navbar-menu:after
+//   height: 20px
+//   width: 20px
+//   margin-left: -1px
+//   background: linear-gradient(to right, #ffea54, #ff5757)
 
 .navbar .navbar-menu .navbar-item
-  font-weight: bold
-  font-size: larger
+  // font-weight: bold
+  // font-size: larger
 
 .navbar .navbar-menu .navbar-item:hover
-  color: #ff5757
+  color: $primary
 
 .content .taglist
   list-style: none
@@ -113,7 +112,7 @@ $black: #2b2523
   padding: 0 1rem
 footer.footer
   padding: 3rem 0rem 0rem
-  background-color: transparent
+  // background-color: transparent
 
 //Menu overrides
 $menu-item-color: $white-ter
@@ -169,3 +168,169 @@ footer .menu-list a
     text-align: center
     max-width: 70%
     margin: 0 0 1em
+
+.bca-button-primary, .bca-button-primary:hover
+  background-color: $primary
+  border-color: $primary
+  color: white
+  font-weight: bold
+  // font-size: larger
+
+.hero-overlay
+  position: absolute
+  top: 0
+  bottom: 0
+  width: 50%
+  height: 100%
+  background-color: white
+  opacity: 0.6
+
+.hero-content
+  position: relative
+  z-index: 1
+  padding: 2em
+  width: 50%
+
+.hero-banner
+  background-size: contain
+  justify-content: center
+  position: relative
+
+.hero-content .title
+  color: $primary
+  font-size: 4rem
+  word-break: normal
+  font-weight: bold
+  text-align: center
+
+.hero-content .subtitle
+  font-size: 1.5rem
+  color: $black
+  word-break: normal
+  margin-top: 4rem
+  text-align: center
+  font-style: italic
+
+.page-section
+  padding: 4rem 0
+
+.page-section-headers
+  margin-bottom: 4rem
+
+.blog-tile-title
+  text-decoration: none
+
+.logo-grid
+  display: flex
+  flex-wrap: wrap
+
+.logo-grid-item
+  flex-grow: 1
+  background-color: white
+  margin-right: 1rem
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  padding: 2rem
+
+.logo-media
+  width: 200px
+  height: 200px
+  border-radius: 50%
+  background-size: contain
+  background-repeat: no-repeat
+  background-position: center
+
+.logo-content
+  text-align: center
+  margin-top: 2rem
+
+.logo-content-title
+  color: $primary
+  margin-bottom: 1rem
+  font-size: 1.5rem
+  font-weight: bold
+
+.contact-grid
+  display: flex
+  flex-wrap: wrap
+  align-items: center
+  justify-content: center
+  background-color: $primary
+
+.contact-grid-item
+  flex-grow: 1
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+.contact-form
+  background-color: white
+  height: 100%
+  padding: 6rem 0
+  flex-grow: 2
+
+.contact-details-title
+  font-size: 2rem
+  font-weight: bold
+  margin-bottom: 1.2rem
+
+.contact-details
+  color: white
+
+.blog-item-card
+  background-color: $primary
+  color: white
+  padding-top: 2rem
+
+.blog-item-card-content
+  padding: 4rem
+
+.social-icons
+  display: flex
+  flex-wrap: wrap
+
+.bg-primary-light
+  background-color: $primary-light
+
+.bg-primary
+  background-color: $primary
+
+.bg-white
+  background-color: white
+
+.blog-item-card.shadow-dark
+  box-shadow: 0 0.5em 1em -0.125em rgba(0, 0, 0, 0.65), 0 0px 0 1px rgba(43, 37, 35, 0.02)
+
+.team-panel
+  display: flex
+  align-items: center
+  justify-content: center
+  padding: 4rem
+
+.team-panel-column-content
+  flex-basis: 75%
+  padding: 0 2rem
+
+.logo-item-icon-text
+  display: inline-flex
+  align-items: center
+  // color: $primary
+
+.logo-item-icon-text-value
+  display: inline-block
+  margin-left: 8px
+
++mobile
+  .hero-content
+    width: 100%
+  .hero-overlay
+    width: 100%
+  .hero-banner
+    background-repeat: no-repeat
+    background-size: cover
+  .hero-body
+    padding-left: 0
+    padding-right: 0

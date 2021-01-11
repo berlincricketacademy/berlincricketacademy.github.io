@@ -1,39 +1,38 @@
 import React from 'react';
 
-import hero from '../img/all.svg';
+import hero from '../img/bca-hero-red-ball.jpg';
 
-const Hero = ({ heading, subheading }) => (
-  <div className="container">
-    <div className="container columns">
-      <div className="column is-offset-1">
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            color: '#4a4a4a',
-            lineHeight: '1',
-            paddingBottom: '20px',
-          }}
+const Hero = ({ heading, subheading, heroBanner = hero, heroBannerHeight = 'medium' }) => (
+  <>
+    <section
+      className="hero is-large hero-banner hero-banner"
+      style={{
+        backgroundImage: `url(${heroBanner})`,
+        height: heroBannerHeight === 'large' ? '800px' : heroBannerHeight === 'medium' ? '400px' : '600px'
+      }}
+    >
+      <div className="hero-overlay" />
+      <div 
+        className="hero-body"
+      >
+        <div
+          className="container"
         >
-          {heading}
-        </h1>
-        <h2
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            color: '#4a4a4a',
-            lineHeight: '1',
-          }}
-        >
-          {subheading}
-        </h2>
+          <div className="hero-content">
+            <h1 className="title">
+              {heading}
+            </h1>
+            {
+              subheading && 
+                <h2 className="subtitle" style={{marginTop: '4rem'}}>
+                  {subheading}
+                </h2>
+            }
+          </div>
+        </div>
       </div>
-      <img
-        className="column"
-        src={hero}
-        alt="Cricket for all"
-        style={{ position: 'relative', top: '-100px' }}
-      />
-    </div>
-  </div>
+    </section>
+  </>
 );
 
 export default Hero;

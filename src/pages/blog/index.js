@@ -2,6 +2,7 @@ import React from 'react';
 
 import Layout from '../../components/Layout';
 import BlogRoll from '../../components/BlogRoll';
+import PageSection from '../../components/PageSection';
 
 export default class BlogIndexPage extends React.Component {
   render() {
@@ -12,9 +13,9 @@ export default class BlogIndexPage extends React.Component {
       >
         <section className="section">
           <div className="container">
-            <div className="content">
+            <PageSection>
               <BlogRoll />
-            </div>
+            </PageSection>
           </div>
         </section>
       </Layout>

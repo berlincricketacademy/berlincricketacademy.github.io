@@ -9,47 +9,68 @@ class BlogRoll extends React.Component {
     const { edges: posts } = data.allMarkdownRemark
 
     return (
-      <div className="columns is-multiline">
+      <div className="tile is-ancestor">
         {posts &&
           posts.map(({ node: post }) => (
-            <div className="is-parent column is-6" key={post.id}>
-              <article
-                className={`blog-list-item tile is-child box notification ${
-                  post.frontmatter.featuredpost ? 'is-featured' : ''
-                }`}
-              >
-                <header>
-                  {post.frontmatter.featuredimage ? (
-                    <div className="featured-thumbnail">
-                      <PreviewCompatibleImage
-                        imageInfo={{
-                          image: post.frontmatter.featuredimage,
-                          alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+            <div className="is-parent tile is-4" key={post.id}>
+              <article className="card blog-item-card shadow-dark">
+                <div 
+                  className="card-image"
+                  style={{
+                    backgroundImage: `url('${post.frontmatter.featuredimage.childImageSharp.fluid.src}')`,
+                    height: '150px',
+                    backgroundSize: 'contain',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    borderRadius: '4px'
+                  }}
+                >
+                  <figure className="image">
+                    {/* <img 
+                      src={post.frontmatter.featuredimage.childImageSharp.fluid.src}
+                      alt={`featured image thumbnail for post ${post.frontmatter.title}`}
+                      style={{
+                        width: '100%',
+                        height: '150px'
+                      }}  
+                    /> */}
+                    {/* <PreviewCompatibleImage
+                      imageInfo={{
+                        image: post.frontmatter.featuredimage,
+                        alt: `featured image thumbnail for post ${post.frontmatter.title}`,
+                      }}
+                    /> */}
+                  </figure>
+                </div>
+                <div className="card-content blog-item-card-content">
+                  <div className="media">
+                    <div className="media-content">
+                      <Link
+                        className="is-spaced has-text-white is-size-4 has-text-weight-semibold"
+                        to={post.fields.slug}
+                      >
+                        {post.frontmatter.title.toUpperCase()}
+                      </Link>
+                      <span
+                        className="subtitle is-size-5 is-block has-text-white"
+                        style={{
+                          display: 'inline-block',
+                          marginTop: '1.5rem'
                         }}
-                      />
+                      >
+                        {post.frontmatter.date}
+                      </span>
                     </div>
-                  ) : null}
-                  <p className="post-meta">
-                    <Link
-                      className="title has-text-primary is-size-4"
-                      to={post.fields.slug}
-                    >
-                      {post.frontmatter.title}
+                  </div>
+                  <div className="content">
+                    {post.frontmatter.description}
+                    <br />
+                    <br />
+                    <Link className="button" to={post.fields.slug}>
+                      Keep Reading →
                     </Link>
-                    <span> &bull; </span>
-                    <span className="subtitle is-size-5 is-block">
-                      {post.frontmatter.date}
-                    </span>
-                  </p>
-                </header>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p>
+                  </div>
+                </div>
               </article>
             </div>
           ))}
@@ -83,6 +104,7 @@ export default () => (
               }
               frontmatter {
                 title
+                description
                 templateKey
                 date(formatString: "MMMM DD, YYYY")
                 featuredpost
