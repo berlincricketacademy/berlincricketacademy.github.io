@@ -1,8 +1,13 @@
 import React from 'react';
 import Link from 'gatsby';
 
-const LogoItem = ({ url, title, subTitle, icon, type, moneyValue, redirectLink = '/', isInternalLink = true }) => (
-  <div className="logo-grid-item card">
+const LogoItem = ({ url, title, subTitle, icon, type, moneyValue, redirectLink = '/', isInternalLink = true, bg = 'white' }) => (
+  <div
+    className={`logo-grid-item card logo-grid-item-bg-${bg}`}
+    style={{
+      backgroundColor: bg === 'white' ? 'white' : '#fbebec'
+    }}
+  >
     {
       url &&
         <div className="logo-media" style={{backgroundImage: `url(${url})`}} />

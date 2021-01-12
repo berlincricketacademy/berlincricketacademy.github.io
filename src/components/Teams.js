@@ -5,7 +5,7 @@ import LogoItem from './LogoItem';
 const Teams = ({ bg = "white" }) => (
   <section className={`section bg-${bg}`}>
     <div className="container">
-      <PageSection title="TEAMS" subTitle="For men, women, girls, kids and the family!">
+      <PageSection title="TEAMS">
         <div className="logo-grid">
           <LogoItem title="SENIOR" icon="user-friends" redirectLink="/teams" />
           <LogoItem title="Women & Girls" icon="female" redirectLink="/teams" />

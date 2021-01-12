@@ -28,14 +28,13 @@ const TeamsPage = () => (
     heading="We welcome everyone"
     subheading="The more players we have, the more matches we can play."
   >
-    <Teams bg="white" /> 
-    <section className="section bg-primary-light">
+    <section className="section">
       <PageSection>
         <div className="container">
           <Panel 
             icon="user-friends"
             title="Senior"
-            content="BCA is always on the look out for and delighted to welcome new players of all ages and abilities to the academy. We provide all players with the opportunity to represent the club across our extensive range of teams. Our academy coaching team delivers all inclusive club training sessions throughout the season. These sessions include high intensity whole club fielding sessions as well as technique focussed, individual and small group practices, working on the application of match specific situations and scenarios. Our aim is to provide a welcoming, fun and competitive environment to allow every player to improve and fulfil their potential at any level of cricket."
+            content="Berlin Cricket Academy is always on the look out for and delighted to welcome new players of all ages and abilities to the academy. We provide all players with the opportunity to represent the club across our extensive range of teams. Our academy coaching team delivers all inclusive club training sessions throughout the season. These sessions include high intensity whole club fielding sessions as well as technique focussed, individual and small group practices, working on the application of match specific situations and scenarios. Our aim is to provide a welcoming, fun and competitive environment to allow every player to improve and fulfil their potential at any level of cricket."
           />
           <Panel 
             icon="female"
@@ -44,8 +43,8 @@ const TeamsPage = () => (
           />
           <Panel 
             icon="child"
-            title="Kids"
-            content="BCA welcomes all junior players of all levels and abilities. We aim to ensure all players are welcome and enjoy their sport at Carnegie. We do this by:
+            title="Junior"
+            content="Berlin Cricket Academy welcomes all junior players of all levels and abilities. We aim to ensure all players are welcome and enjoy their sport at Carnegie. We do this by:
 
 ​
 
@@ -55,7 +54,7 @@ Emphasising the fun aspects of team sport
 Having willing, enthusiastic and quality coaches
 ​
 
-In addition to developing players who are new to the sport, BCA aligns with the Cricket Germany talent pathway opportunities, starting with representative and regional level cricket."
+In addition to developing players who are new to the sport, Berlin Cricket Academy aligns with the Cricket Germany talent pathway opportunities, starting with representative and regional level cricket."
           />
         </div>
       </PageSection>

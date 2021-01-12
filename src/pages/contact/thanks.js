@@ -4,8 +4,8 @@ import Layout from '../../components/Layout';
 export default () => (
   <Layout
     heading="Thank you"
-    subheading="We will get back soon to you"
+    subheading="We appreciate your interest and will get back to you as soon as possible."
   >
-    <div style={{ height: '10px' }} />
+    <div />
   </Layout>
 );

@@ -1,5 +1,11 @@
 @import "~bulma/sass/utilities/initial-variables"
+@import url(//db.onlinewebfonts.com/c/ba05de4b4767452bff18bfa18e1a11c1?family=Handset+Sans)
 
+@font-face
+  font-family: 'Custom'
+  src: url("//db.onlinewebfonts.com/t/ba05de4b4767452bff18bfa18e1a11c1.ttf")
+
+$default-font-family: 'Custom', Helvetica, Arial, Verdana, Tahoma, sans-serif
 $kaldi-red: rgba(185, 22, 28, 1)
 $kaldi-red-invert: #fff
 $primary-light: #fbebec
@@ -9,8 +15,11 @@ $primary-invert: $kaldi-red-invert
 $body-color: #333
 $black: #2b2523
 
+.layout
+  font-family: $default-font-family
+
 .navbar .navbar-brand img:hover
-  transform: scale(1.2)
+  transform: scale(1.1)
 
 .navbar .navbar-menu
   box-shadow: none !important
@@ -226,13 +235,18 @@ footer .menu-list a
 
 .logo-grid-item
   flex-grow: 1
-  background-color: white
   margin-right: 1rem
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
   padding: 2rem
+
+.logo-grid-item-bg-primary-light
+  background-color: $primary-light
+
+.logo-grid-item-bg-white
+  background-color: white
 
 .logo-media
   width: 200px
@@ -283,7 +297,7 @@ footer .menu-list a
 .blog-item-card
   background-color: $primary
   color: white
-  padding-top: 2rem
+  // padding-top: 2rem
 
 .blog-item-card-content
   padding: 4rem

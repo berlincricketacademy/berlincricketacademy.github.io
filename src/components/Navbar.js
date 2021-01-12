@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import logo from '../img/logo.svg';
+import logo from '../img/logo-new.svg';
 import Social from '../components/Social';
 
 const Navbar = class extends React.Component {
@@ -47,7 +47,7 @@ const Navbar = class extends React.Component {
               <img
                 src={logo}
                 alt="BCA"
-                style={{ maxHeight: '10rem', height: '10rem' }}
+                style={{ maxHeight: '6rem', height: '6rem' }}
               />
             </Link>
             {/* Hamburger menu */}

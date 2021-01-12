@@ -18,8 +18,8 @@ class BlogRoll extends React.Component {
                   className="card-image"
                   style={{
                     backgroundImage: `url('${post.frontmatter.featuredimage.childImageSharp.fluid.src}')`,
-                    height: '150px',
-                    backgroundSize: 'contain',
+                    height: '250px',
+                    backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
                     borderRadius: '4px'

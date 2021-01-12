@@ -9,7 +9,7 @@ const Contact = () => (
     heading="CONTACT US"
     subheading="For enquiries, to learn more about us, get new updates and give us feedback"
   >
-    <div style={{height: '10px'}} />
+    <div />
   </Layout>
 );
 

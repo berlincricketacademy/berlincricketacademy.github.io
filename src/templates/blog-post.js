@@ -59,7 +59,9 @@ const BlogPost = ({ data }) => {
   return (
     <Layout
       heading={post.frontmatter.title}
+      subheading={post.frontmatter.date}
       heroBanner={post.frontmatter.featuredimage.childImageSharp.fluid.src}
+      heroBannerHeight="medium"
     >
       <BlogPostTemplate
         content={post.html}

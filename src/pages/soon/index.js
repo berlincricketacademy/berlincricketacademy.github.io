@@ -6,7 +6,7 @@ const ComingSoon = () => (
     heading="Coming Soon"
     subheading="You just hit a route that is under construction 🚧"
   >
-    <div style={{ height: '10px' }} />
+    <div />
   </Layout>
 );
 

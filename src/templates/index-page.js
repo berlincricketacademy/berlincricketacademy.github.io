@@ -13,6 +13,7 @@ import LogoItem from '../components/LogoItem';
 import PageSection from '../components/PageSection';
 import Membership from '../components/Membership';
 import Teams from '../components/Teams';
+import Events from '../components/Events';
 
 export const IndexPageTemplate = ({
   image,
@@ -26,6 +27,11 @@ export const IndexPageTemplate = ({
   <>
     <section className="section">
       <div className="container">
+        <article className="message">
+          <div className="message-body" style={{ fontSize: '1.2em' }}>
+            We will begin operations asap life returns to normalcy from COVID. Until then, stay safe, stay healthy!
+          </div>
+        </article>
         <PageSection title="LATEST NEWS">
           <BlogRoll />
         </PageSection>
@@ -38,18 +44,19 @@ export const IndexPageTemplate = ({
         </PageSection>
       </div>
     </section>
-    <Teams />
-    <section className="section bg-primary-light">
+    <Events />
+    <Teams bg="primary-light" />
+    <section className="section">
       <div className="container">
         <PageSection title="AFFILIATIONS" subTitle="Valued Partnerships">
           <div className="logo-grid">
-            <LogoItem url={dcb} title="DCB" subTitle="German Cricket Federation" redirectLink="https://www.cricket.de/" isInternalLink={false} />
-            <LogoItem url={odcv} title="ODCV" subTitle="East German Cricket Association" redirectLink="https://www.facebook.com/ODCV-1296896147022686" isInternalLink={false} />
+            <LogoItem url={dcb} title="DCB" subTitle="German Cricket Federation" redirectLink="https://www.cricket.de/" isInternalLink={false} bg="primary-light" />
+            <LogoItem url={odcv} title="ODCV" subTitle="East German Cricket Association" redirectLink="https://www.facebook.com/ODCV-1296896147022686" isInternalLink={false} bg="primary-light" />
           </div>
         </PageSection>
         <PageSection title="SPONSORS" subTitle="Supporting the Team">
           <div className="logo-grid">
-            <LogoItem url={maak} title="MAAK" subTitle="Engineering & Contstruction in KSA" redirectLink="http://maakksa.com/" isInternalLink={false} />
+            <LogoItem url={maak} title="MAAK" subTitle="Engineering & Contstruction in KSA" redirectLink="http://maakksa.com/" isInternalLink={false} bg="primary-light" />
           </div>
         </PageSection>
       </div>

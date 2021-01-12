@@ -9,14 +9,9 @@ const Footer = class extends React.Component {
   render() {
     return (
       <>
-        <section className="section">
+        <section className="section bg-primary-light">
           <div className="container">
-            <PageSection title="CONTACT US" subTitle="For enquiries, to learn more about us, get new updates and give us feedback">
-              <article className="message">
-                <div className="message-body" style={{ fontSize: '1.2em' }}>
-                  We will begin operations asap life returns to normalcy from COVID. Until then, stay safe, stay healthy!
-                </div>
-              </article>
+            <PageSection title="CONTACT US">
               <div className="contact-grid card">
                 <div className="contact-grid-item contact-details">
                   <h1 className="contact-details-title is-spaced">BERLIN CRICKET ACADEMY</h1>
@@ -53,13 +48,13 @@ const Footer = class extends React.Component {
           </div>
         </section>  
         <footer
-          className="footer bg-primary-light card"
+          className="footer card"
         >
           <div className="container">
             <div style={{display: 'flex', justifyContent: 'space-between', padding: '2rem 0'}}>
               <Social />
               <div className="content has-text-centered has-text-weight-semibold">
-                {`${new Date().getFullYear()} by Berlin Cricket Academy`}
+                {`Copyright ©️ ${new Date().getFullYear()} Berlin Cricket Academy. All rights reserved.`}
               </div>
             </div>
           </div>

@@ -14,7 +14,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 const TemplateWrapper = ({ heading, subheading, heroBannerHeight, heroBanner, children }) => {
   const { title, description } = useSiteMetadata();
   return (
-    <div>
+    <div className="layout">
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
