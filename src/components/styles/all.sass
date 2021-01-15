@@ -224,7 +224,7 @@ footer .menu-list a
   font-style: italic
 
 .page-section
-  padding: 4rem 0
+  padding: 0 0 4rem
 
 .page-section-headers
   margin-bottom: 4rem
@@ -254,7 +254,7 @@ footer .menu-list a
 .logo-media
   width: 200px
   height: 200px
-  border-radius: 50%
+  // border-radius: 50%
   background-size: contain
   background-repeat: no-repeat
   background-position: center
@@ -343,6 +343,10 @@ footer .menu-list a
 +mobile
   .hero-content
     width: 100%
+  .hero-content .title
+    word-break: break-all
+  .hero-content .subtitle
+    word-break: break-all
   .hero-overlay
     width: 100%
   .hero-banner

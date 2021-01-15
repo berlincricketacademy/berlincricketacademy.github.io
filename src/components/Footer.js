@@ -8,8 +8,8 @@ import PageSection from '../components/PageSection';
 const Footer = () => (
   <>
     <section className="section bg-primary-light">
-      <div className="container">
-        <PageSection title="CONTACT US" subTitle="We are always on the look out for new players of any standard as well as volunteers who do an amazing job in keeping our club running. So, if you are interested in playing or any other role (for example coaching, officiating, team management, making the tea!) then please contact us below.">
+      <div className="container" id="contact-form">
+        <PageSection title="CONTACT US" subTitle="We are always on the look out for new players of any standard as well as volunteers who do an amazing job in keeping our club running. So, if you are interested in playing or any other role (for example coaching, officiating, team management, supporting) then please contact us below.">
           <div className="contact-grid card">
             <div className="contact-grid-item contact-details">
               <h1 className="contact-details-title is-spaced contact-details-item">BERLIN CRICKET ACADEMY</h1>
