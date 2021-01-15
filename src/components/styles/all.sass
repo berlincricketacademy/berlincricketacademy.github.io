@@ -15,7 +15,10 @@ $primary-invert: $kaldi-red-invert
 $body-color: #333
 $black: #2b2523
 
-.layout
+.layout .layout-title
+  font-family: $default-font-family
+
+.layout .layout-subtitle
   font-family: $default-font-family
 
 .navbar .navbar-brand img:hover
@@ -303,7 +306,7 @@ footer .menu-list a
   padding: 4rem
 
 .social-icons
-  display: flex
+  display: inline-flex
   flex-wrap: wrap
 
 .bg-primary-light
@@ -348,3 +351,14 @@ footer .menu-list a
   .hero-body
     padding-left: 0
     padding-right: 0
+  .contact-details-item
+    padding: 0 2rem
+    word-break: break-all
+  .contact-details-item:first-child
+    padding-top: 2rem
+  .contact-details-item:last-child
+    padding-bottom: 2rem
+  .contact-form
+    flex-grow: 1
+  .contact-details-title
+    text-align: center

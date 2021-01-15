@@ -11,7 +11,7 @@ import wave from '../img/wave.svg';
 import './styles/all.sass';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
-const TemplateWrapper = ({ heading, subheading, heroBannerHeight, heroBanner, children }) => {
+const TemplateWrapper = ({ heading, subheading, heroBannerHeight, heroBanner, children, showSocialIcons = false }) => {
   const { title, description } = useSiteMetadata();
   return (
     <div className="layout">
@@ -54,7 +54,7 @@ const TemplateWrapper = ({ heading, subheading, heroBannerHeight, heroBanner, ch
         />
       </Helmet>
       <Navbar />
-      <Hero heading={heading} subheading={subheading} heroBannerHeight={heroBannerHeight} heroBanner={heroBanner} />
+      <Hero heading={heading} subheading={subheading} heroBannerHeight={heroBannerHeight} heroBanner={heroBanner} showSocialIcons={showSocialIcons} />
       <div>{children}</div>
       <Footer />
     </div>

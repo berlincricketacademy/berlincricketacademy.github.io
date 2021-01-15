@@ -9,7 +9,8 @@ export default class BlogIndexPage extends React.Component {
     return (
       <Layout
         heading="Latest News"
-        subheading="Subscribe to stay upto date with all the latest news"
+        subheading="Follow us on Social Media and keep up to date with all the latest news "
+        showSocialIcons
       >
         <section className="section">
           <div className="container">

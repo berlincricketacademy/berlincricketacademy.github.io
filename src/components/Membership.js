@@ -6,7 +6,7 @@ const icon = "money-bill-wave";
 const moneyText = ' / year';
 
 const Membership = () => (
-  <section className="section">
+  <section className="section bg-primary-light">
     <div className="container">
       <PageSection title="SHOP" subTitle="Our annual membership offers">
         <div className="logo-grid">

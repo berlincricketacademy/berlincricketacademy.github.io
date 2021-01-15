@@ -9,7 +9,7 @@ const Shop = () => (
     subheading="Option to purchase cricket swag online coming soon!"
   >
     <Membership />
-    <section className="section bg-primary-light">
+    <section className="section">
       <PageSection title="HOW TO PAY">
         <div className="container">
           <article className="message is-dark">

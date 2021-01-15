@@ -8,7 +8,7 @@ const Teams = ({ bg = "white" }) => (
       <PageSection title="TEAMS">
         <div className="logo-grid">
           <LogoItem title="SENIOR" icon="user-friends" redirectLink="/teams" />
-          <LogoItem title="Women & Girls" icon="female" redirectLink="/teams" />
+          <LogoItem title="LADIES" icon="female" redirectLink="/teams" />
           <LogoItem title="Junior" icon="child" redirectLink="/teams" />
         </div>
       </PageSection>

@@ -27,11 +27,11 @@ export const IndexPageTemplate = ({
   <>
     <section className="section">
       <div className="container">
-        <article className="message">
+        {/* <article className="message">
           <div className="message-body" style={{ fontSize: '1.2em' }}>
-            We will begin operations asap life returns to normalcy from COVID. Until then, stay safe, stay healthy!
+            COVID 19 – We remain closed until further notice. Please register *here* and we will get back to you as soon as possible.
           </div>
-        </article>
+        </article> */}
         <PageSection title="LATEST NEWS">
           <BlogRoll />
         </PageSection>
