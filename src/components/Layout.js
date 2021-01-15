@@ -9,11 +9,12 @@ import useSiteMetadata from './SiteMetadata';
 import wave from '../img/wave.svg';
 
 import './styles/all.sass';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
-const TemplateWrapper = ({ heading, subheading, children }) => {
+const TemplateWrapper = ({ heading, subheading, heroBannerHeight, heroBanner, children, showSocialIcons = false }) => {
   const { title, description } = useSiteMetadata();
   return (
-    <div>
+    <div className="layout">
       <Helmet>
         <html lang="en" />
         <title>{title}</title>
@@ -52,16 +53,8 @@ const TemplateWrapper = ({ heading, subheading, children }) => {
           content={`${withPrefix('/')}img/og-image.png`}
         />
       </Helmet>
-      <div
-        style={{
-          backgroundImage: `url(${wave})`,
-          backgroundSize: `cover`,
-          // height: '400px',
-        }}
-      >
-        <Navbar />
-        <Hero heading={heading} subheading={subheading} />
-      </div>
+      <Navbar />
+      <Hero heading={heading} subheading={subheading} heroBannerHeight={heroBannerHeight} heroBanner={heroBanner} showSocialIcons={showSocialIcons} />
       <div>{children}</div>
       <Footer />
     </div>

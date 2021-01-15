@@ -1,118 +1,66 @@
 import React from 'react';
 import { Link } from 'gatsby';
 
-import logo from '../img/logo.svg';
-import facebook from '../img/social/facebook.svg';
-import instagram from '../img/social/instagram.svg';
-import twitter from '../img/social/twitter.svg';
-import vimeo from '../img/social/vimeo.svg';
+import Social from '../components/Social';
+import ContactForm from '../pages/contact/form';
+import PageSection from '../components/PageSection';
 
-const Footer = class extends React.Component {
-  render() {
-    return (
-      <footer
-        className="footer"
-        style={{
-          background: 'linear-gradient(to right,  #fff, #ffea54, #feaa2b)',
-          boxShadow: '0 0 16px 0 rgba(0, 0, 0, 0.08)',
-        }}
-      >
-        <div className="content has-text-centered">
-          <div className="container">
-            <div style={{ maxWidth: '100vw' }} className="columns">
-              <div className="column is-4 social">
-                <div className="content has-text-centered">
-                  <img
-                    src={logo}
-                    alt="BCA"
-                    style={{ width: '14em', height: '10em' }}
-                  />
-                </div>
-                <a title="facebook" href="https://facebook.com">
-                  <img
-                    src={facebook}
-                    alt="Facebook"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-                <a title="twitter" href="https://twitter.com">
-                  <img
-                    className="fas fa-lg"
-                    src={twitter}
-                    alt="Twitter"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-                <a title="instagram" href="https://instagram.com">
-                  <img
-                    src={instagram}
-                    alt="Instagram"
-                    style={{ width: '1em', height: '1em' }}
-                  />
-                </a>
-              </div>
-              <div className="column is-4">
-                <section className="menu">
-                  <ul className="menu-list">
-                    <li>
-                      <Link to="/" className="navbar-item">
-                        Home
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/blog">
-                        News
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/about">
-                        Information
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact">
-                        Contact
-                      </Link>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4">
-                <section>
-                  <ul className="menu-list">
-                    <li>
-                      <Link className="navbar-item" to="/soon">
-                        Teams
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/soon">
-                        Shop
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/soon">
-                        Gallery
-                      </Link>
-                    </li>
-                  </ul>
-                </section>
+const Footer = () => (
+  <>
+    <section className="section bg-primary-light">
+      <div className="container" id="contact-form">
+        <PageSection title="CONTACT US" subTitle="We are always on the look out for new players of any standard as well as volunteers who do an amazing job in keeping our club running. So, if you are interested in playing or any other role (for example coaching, officiating, team management, supporting) then please contact us below.">
+          <div className="contact-grid card">
+            <div className="contact-grid-item contact-details">
+              <h1 className="contact-details-title is-spaced contact-details-item">BERLIN CRICKET ACADEMY</h1>
+              <p className="contact-details-item">
+                <span className="icon-text">
+                  <span className="icon">
+                    <i className={`fas fa-map-marker-alt`} />
+                  </span>
+                  <span className="is-size-5">Mitte, 10179 - Berlin, Germany</span>
+                </span>
+              </p>
+              <p className="contact-details-item">
+                <span className="icon-text">
+                  <span className="icon">
+                    <i className={`fas fa-envelope-square`} />
+                  </span>
+                  <span className="is-size-5">contact@berlincricketacademy.com</span>
+                </span>
+              </p>
+              <p className="contact-details-item">
+                <span className="icon-text">
+                  <span className="icon">
+                    <i className={`fas fa-phone`} />
+                  </span>
+                  <span className="is-size-5">+49 152 27672304</span>
+                </span>
+              </p>
+              <div className="contact-details-item" style={{marginTop: '1rem'}}>
+                <Social />
               </div>
             </div>
+            <div className="contact-grid-item contact-form">
+              <ContactForm />
+            </div>
+          </div>
+        </PageSection>
+      </div>
+    </section>  
+    <footer
+      className="footer card"
+    >
+      <div className="container">
+        <div style={{display: 'flex', justifyContent: 'space-between', padding: '2rem 0'}}>
+          <Social />
+          <div className="content has-text-centered has-text-weight-semibold">
+            {`Copyright ©️ ${new Date().getFullYear()} Berlin Cricket Academy. All rights reserved.`}
           </div>
         </div>
-        <div className="content has-text-centered">
-          Icons made by{' '}
-          <a
-            href="https://www.flaticon.com/authors/smashicons"
-            title="Smashicons"
-          >
-            Smashicons
-          </a>
-        </div>
-      </footer>
-    );
-  }
-};
+      </div>
+    </footer>
+  </>
+)
 
 export default Footer;

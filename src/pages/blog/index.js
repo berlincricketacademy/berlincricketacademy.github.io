@@ -2,19 +2,21 @@ import React from 'react';
 
 import Layout from '../../components/Layout';
 import BlogRoll from '../../components/BlogRoll';
+import PageSection from '../../components/PageSection';
 
 export default class BlogIndexPage extends React.Component {
   render() {
     return (
       <Layout
         heading="Latest News"
-        subheading="Subscribe to stay upto date with all the latest news"
+        subheading="Follow us on Social Media - keep up to date with all the latest news "
+        showSocialIcons
       >
         <section className="section">
           <div className="container">
-            <div className="content">
+            <PageSection>
               <BlogRoll />
-            </div>
+            </PageSection>
           </div>
         </section>
       </Layout>

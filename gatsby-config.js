@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Berlin cricket Academy',
+    title: 'Berlin Cricket Academy',
     description: 'Cricket for all. A cricket academy for Berlin amateurs.',
   },
   plugins: [

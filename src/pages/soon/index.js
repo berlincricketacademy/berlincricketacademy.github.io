@@ -5,8 +5,9 @@ const ComingSoon = () => (
   <Layout
     heading="Coming Soon"
     subheading="You just hit a route that is under construction 🚧"
+    showSocialIcons
   >
-    <div style={{ height: '100px' }} />
+    <div />
   </Layout>
 );
 

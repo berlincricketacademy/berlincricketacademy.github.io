@@ -6,6 +6,15 @@ import Layout from '../components/Layout';
 import Features from '../components/Features';
 import BlogRoll from '../components/BlogRoll';
 
+import dcb from '../img/dcb.png';
+import odcv from '../img/odcv.png';
+import maak from '../img/maak.png';
+import LogoItem from '../components/LogoItem';
+import PageSection from '../components/PageSection';
+import Membership from '../components/Membership';
+import Teams from '../components/Teams';
+import Events from '../components/Events';
+
 export const IndexPageTemplate = ({
   image,
   title,
@@ -15,86 +24,39 @@ export const IndexPageTemplate = ({
   description,
   intro,
 }) => (
-  <div>
-    <div
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundAttachment: `fixed`,
-        backgroundSize: `cover`,
-        display: 'none',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          height: '150px',
-          lineHeight: '1',
-          justifyContent: 'space-around',
-          alignItems: 'left',
-          flexDirection: 'column',
-        }}
-      >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
-          style={{
-            boxShadow: '0 0 16px 0 rgba(0, 0, 0, 0.08)',
-            backgroundColor: '#0f0e17',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {title}
-        </h1>
-        <h3
-          className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
-          style={{
-            boxShadow: '0 0 16px 0 rgba(0, 0, 0, 0.08)',
-            backgroundColor: '#f44335',
-            color: 'white',
-            lineHeight: '1',
-            padding: '0.25em',
-          }}
-        >
-          {subheading}
-        </h3>
-      </div>
-    </div>
-    <section className="section section--gradient" style={{ paddingTop: 0 }}>
+  <>
+    <section className="section">
       <div className="container">
-        <div className="section">
-          <div className="columns">
-            <div className="column is-10 is-offset-1">
-              <div className="content">
-                <div className="columns">
-                  <div className="column is-12">
-                    <article class="message is-dark">
-                      <div class="message-body" style={{ fontSize: '1.2em' }}>
-                        {description}
-                      </div>
-                    </article>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">NEWS</h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <PageSection title="LATEST NEWS">
+          <BlogRoll />
+        </PageSection>
       </div>
     </section>
-  </div>
+    <section className="section bg-primary-light">
+      <div className="container" style={{textAlign: 'center'}}>
+        <PageSection title="GALLERY">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/R9DyykLIyoQ?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </PageSection>
+      </div>
+    </section>
+    <Events />
+    <Teams bg="primary-light" />
+    <section className="section">
+      <div className="container">
+        <PageSection title="AFFILIATIONS" subTitle="Valued Partnerships">
+          <div className="logo-grid">
+            <LogoItem url={dcb} title="DCB" subTitle="German Cricket Federation" redirectLink="https://www.cricket.de/" isInternalLink={false} bg="primary-light" />
+            <LogoItem url={odcv} title="ODCV" subTitle="East German Cricket Association" redirectLink="https://www.facebook.com/ODCV-1296896147022686" isInternalLink={false} bg="primary-light" />
+          </div>
+        </PageSection>
+        <PageSection title="SPONSORS" subTitle="Supporting the Team">
+          <div className="logo-grid">
+            <LogoItem url={maak} title="MAAK" subTitle="Engineering & Contstruction in KSA" redirectLink="http://maakksa.com/" isInternalLink={false} bg="primary-light" />
+          </div>
+        </PageSection>
+      </div>
+    </section>
+  </>
 );
 
 IndexPageTemplate.propTypes = {
@@ -113,7 +75,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
-    <Layout heading={frontmatter.heading} subheading={frontmatter.subheading}>
+    <Layout heading={frontmatter.heading} subheading={frontmatter.subheading} heroBannerHeight="large">
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}

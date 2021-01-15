@@ -22,10 +22,9 @@ export const BlogPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
+            <h1 className="title is-size-4 has-text-weight-semibold is-bold-light">
+              {description}
             </h1>
-            <p>{description}</p>
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -59,8 +58,10 @@ const BlogPost = ({ data }) => {
 
   return (
     <Layout
-      heading="Latest News"
-      subheading="Subscribe to stay upto date with all the latest news"
+      heading={post.frontmatter.title}
+      subheading={post.frontmatter.date}
+      heroBanner={post.frontmatter.featuredimage.childImageSharp.fluid.src}
+      heroBannerHeight="medium"
     >
       <BlogPostTemplate
         content={post.html}
@@ -100,6 +101,13 @@ export const pageQuery = graphql`
         title
         description
         tags
+        featuredimage {
+          childImageSharp {
+            fluid(maxWidth: 2048, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }
