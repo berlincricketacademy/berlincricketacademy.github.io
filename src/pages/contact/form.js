@@ -38,7 +38,10 @@ export default class Index extends React.Component {
       <section className="section" style={{width: '80%'}}>
         <div className="container">
           <div className="content">
-            <form
+            <p>
+              Due to overwhelming response, we are currently disabling our contact form for 24 hours till 26.01.2021 12:00 CET. Meanwhile please contact us directly at contact@berlincricketacademy.com.
+            </p>
+            {/* <form
               name="contact"
               method="post"
               action="/contact/thanks/"
@@ -46,7 +49,7 @@ export default class Index extends React.Component {
               data-netlify-honeypot="bot-field"
               onSubmit={this.handleSubmit}
             >
-              {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+              The `form-name` hidden field is required to support form submissions without JavaScript
               <input type="hidden" name="form-name" value="contact" />
               <div hidden>
                 <label>
@@ -105,7 +108,7 @@ export default class Index extends React.Component {
                   Submit
                 </button>
               </div>
-            </form>
+            </form> */}
           </div>
         </div>
       </section>
