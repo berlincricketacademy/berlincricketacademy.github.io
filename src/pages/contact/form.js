@@ -37,10 +37,10 @@ export default class Index extends React.Component {
     return (
       <section className="section" style={{width: '80%'}}>
         <div className="container">
-          <p style={{maxWidth: '300px'}}>
+          <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScFLTRzNjHWV4PBQ6DNzMuY0EE4v1BmWPCayPY0MH4mCE2y8w/viewform?embedded=true" width="100%" height="500" frameborder="1" marginheight="0" marginwidth="0">Loading…</iframe>
+          {/* <p style={{maxWidth: '300px'}}>
             Due to overwhelming response, we are currently disabling our contact form for 24 hours till 26.01.2021 12:00 CET. Meanwhile please contact us directly at <strong>contact@berlincricketacademy.com</strong>.
-            {/* Due to overwhelming response */}
-          </p>
+          </p> */}
         </div>
       </section>
       // <section className="section" style={{width: '80%'}}>
