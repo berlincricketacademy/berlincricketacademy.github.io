@@ -1,0 +1,15 @@
+{
+  "main.js": "render-page.js",
+  "main.js.map": "render-page.js.map",
+  "static/bca-hero-red-ball.jpg": "static/bca-hero-red-ball-14e4b806868cf62ba85f6eb300a18c0b.jpg",
+  "static/calendar.png": "static/calendar-c46c6e2c294f9e19129f04e2df198f3a.png",
+  "static/dcb.png": "static/dcb-93f82d8de60423515439d8d28dec35ae.png",
+  "static/fixture.png": "static/fixture-d0fa32c0966665db04f8b6e1ca075a78.png",
+  "static/gallery.png": "static/gallery-f4f1b60bd52e4e833d87fd628fcb4f30.png",
+  "static/logo-new.svg": "static/logo-new-692ba55da24a43e2eac33f2f7f01dde7.svg",
+  "static/maak.png": "static/maak-d4a4c21daa80b068f62ec2fb4b9947af.png",
+  "static/odcv.png": "static/odcv-9c9afbc5cadd0624063f6d2c297d973c.png",
+  "static/teamwear.jpg": "static/teamwear-6d9b0f4cf54a23de42470727147f7f17.jpg",
+  "static/training.png": "static/training-9add20cd4ec07dbd4e4388dd9867c6ce.png",
+  "static/trials.png": "static/trials-974d76607e549ee77aa5d1e1f38fc47b.png"
+}
