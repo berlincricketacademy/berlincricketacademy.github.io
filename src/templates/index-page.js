@@ -35,7 +35,14 @@ export const IndexPageTemplate = ({
     <section className="section bg-primary-light">
       <div className="container" style={{textAlign: 'center'}}>
         <PageSection title="GALLERY">
-          <iframe className="iframe" height="315" src="https://www.youtube.com/embed/R9DyykLIyoQ?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div className="video-gallery">
+            <div className="video-gallery-item">
+              <iframe className="iframe" height="315" src="https://www.youtube.com/embed/R9DyykLIyoQ?controls=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div className="video-gallery-item">
+              <iframe className="iframe" height="315" src="https://www.youtube.com/embed/6izptb3EvFM" title="BCA team wear" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
         </PageSection>
       </div>
     </section>

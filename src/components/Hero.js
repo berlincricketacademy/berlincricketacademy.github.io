@@ -40,7 +40,7 @@ const Hero = ({ heading, subheading, heroBanner = hero, heroBannerHeight = 'smal
         </div>
       </div>
     </section>
-    <section style={{margin: '2rem 0'}}>
+    {/* <section style={{margin: '2rem 0'}}>
       <div className="container">
         <article className="message">
           <div className="message-body" style={{ fontSize: '1.2em' }}>
@@ -49,7 +49,7 @@ const Hero = ({ heading, subheading, heroBanner = hero, heroBannerHeight = 'smal
         </article>
         
       </div>
-    </section>
+    </section> */}
   </>
 );
 

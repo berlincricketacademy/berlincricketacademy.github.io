@@ -34,7 +34,15 @@ const Footer = () => (
                   <span className="icon">
                     <i className={`fas fa-phone`} />
                   </span>
-                  <span className="is-size-5">+49 152 27672304</span>
+                  <span className="is-size-5">+49 152 27672304 (English)</span>
+                </span>
+              </p>
+              <p className="contact-details-item">
+                <span className="icon-text">
+                  <span className="icon">
+                    <i className={`fas fa-phone`} />
+                  </span>
+                  <span className="is-size-5">+49 172 7938141 (German)</span>
                 </span>
               </p>
               <div className="contact-details-item" style={{marginTop: '1rem'}}>

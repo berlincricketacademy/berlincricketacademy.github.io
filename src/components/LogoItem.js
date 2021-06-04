@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'gatsby';
 
-const LogoItem = ({ url, title, subTitle, icon, type, moneyValue, redirectLink = '/', isInternalLink = true, bg = 'white' }) => (
+const LogoItem = ({ url, title, subTitle, description, icon, type, moneyValue, redirectLink = '/', isInternalLink = true, bg = 'white' }) => (
   <div
     className={`logo-grid-item card logo-grid-item-bg-${bg}`}
     style={{
@@ -37,6 +37,10 @@ const LogoItem = ({ url, title, subTitle, icon, type, moneyValue, redirectLink =
           <p className="is-size-5 logo-content-subTitle">{subTitle}</p>
       }
     </div>
+    {
+      description &&
+        <p className="is-size-6 logo-content-subTitle">{description}</p>
+    }
   </div>
 );
 

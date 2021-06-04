@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import PageSection from '../../components/PageSection';
-import calendar from '../../img/calendar.png';
+import trials from '../../img/trials.png';
 import LogoItem from '../../components/LogoItem';
 
 const Calendar = () => (
@@ -13,9 +13,9 @@ const Calendar = () => (
       <div className="container" style={{textAlign: 'center'}}>
         <PageSection>
           <div className="logo-grid">
-            <LogoItem url={calendar} /> 
-            <LogoItem url={calendar} />
-            <LogoItem url={calendar} />
+            <LogoItem title="Senior Training" subTitle="Every Wednesday 17:00 - 20:30" description="Am Glockenturm 1, 14053 Berlin Charlottenburg" url={trials} redirectLink="/soon"  />
+            <LogoItem title="Junior Training" subTitle="Every Friday 16:30 - 18:00" description="Am Glockenturm 1, 14053 Berlin Charlottenburg" url={trials} redirectLink="/soon"  />
+            <LogoItem title="Ladies Training" subTitle="Every Friday 18:00 - 20:00" description="Am Glockenturm 1, 14053 Berlin Charlottenburg" url={trials} redirectLink="/soon"  />
           </div>
         </PageSection>
       </div>
