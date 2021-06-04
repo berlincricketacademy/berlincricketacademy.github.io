@@ -58,7 +58,7 @@ export const IndexPageTemplate = ({
         </PageSection>
         <PageSection title="SPONSORS" subTitle="Supporting the Team">
           <div className="logo-grid">
-            <LogoItem url={maak} title="MAAK" subTitle="Engineering & Contstruction in KSA" redirectLink="http://maakksa.com/" isInternalLink={false} bg="primary-light" />
+            <LogoItem url={maak} title="MAAK" subTitle="Engineering & Construction in KSA" redirectLink="http://maakksa.com/" isInternalLink={false} bg="primary-light" />
           </div>
         </PageSection>
       </div>
