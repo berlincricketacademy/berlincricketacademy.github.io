@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[11],{CgSh:function(e,n,a){"use strict";a.r(n);var t=a("q1tI"),o=a.n(t),i=a("7oih");a("QhqX"),a("O+dy");n.default=function(){return o.a.createElement(i.a,{subheading:"Follow us on Social Media and keep up to date with all the latest news ",showSocialIcons:!0},o.a.createElement("div",null))}}}]);
-//# sourceMappingURL=component---src-pages-contact-index-js-fb60dbb2c43bb7e2521d.js.map

@@ -2,7 +2,6 @@
   "main.js": "render-page.js",
   "main.js.map": "render-page.js.map",
   "static/bca-hero-red-ball.jpg": "static/bca-hero-red-ball-14e4b806868cf62ba85f6eb300a18c0b.jpg",
-  "static/calendar.png": "static/calendar-c46c6e2c294f9e19129f04e2df198f3a.png",
   "static/dcb.png": "static/dcb-93f82d8de60423515439d8d28dec35ae.png",
   "static/fixture.png": "static/fixture-d0fa32c0966665db04f8b6e1ca075a78.png",
   "static/gallery.png": "static/gallery-f4f1b60bd52e4e833d87fd628fcb4f30.png",
