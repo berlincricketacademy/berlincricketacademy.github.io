@@ -11,9 +11,9 @@ const Events = () => (
     <div className="container">
       <PageSection title="UPCOMING EVENTS">
         <div className="logo-grid">
-          <LogoItem title="Senior Indoor Training" subTitle="Every Sunday 12:00 - 14:00" description="Frauenlobstraße 61, 12437 Berlin" url={trials} redirectLink="/soon"  />
-          <LogoItem title="Junior Indoor Training" subTitle="Every Sunday 14:00 - 15:30" description="Frauenlobstraße 61, 12437 Berlin" url={trials} redirectLink="/soon"  />
-          <LogoItem title="Ladies Indoor Training" subTitle="Every Sunday 15:30 - 17:00" description="Frauenlobstraße 61, 12437 Berlin" url={trials} redirectLink="/soon"  />
+          <LogoItem title="Senior Training" subTitle="Every Wednesday 16:00 - 20:30" description="Maifeld Am Glockenturm 1, 14053 Berlin Charlottenburg" url={trials} redirectLink="/soon"  />
+          <LogoItem title="Junior Training" subTitle="Every Friday 16:00 - 18:00" description="Maifeld Am Glockenturm 1, 14053 Berlin Charlottenburg" url={trials} redirectLink="/soon"  />
+          <LogoItem title="Ladies Training" subTitle="Every Friday 18:00 - 20:30" description="Maifeld Am Glockenturm 1, 14053 Berlin Charlottenburg" url={trials} redirectLink="/soon"  />
         </div>
         <div className="logo-grid" style={{marginTop: '2rem'}}>
           <LogoItem title="Trials 2022" subTitle="Time is TBD | Location is TBD" url={training} redirectLink="/soon" />

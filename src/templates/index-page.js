@@ -8,7 +8,9 @@ import BlogRoll from '../components/BlogRoll';
 
 import dcb from '../img/dcb.png';
 import odcv from '../img/odcv.png';
-import maak from '../img/maak.png';
+import msquare from '../img/msquare.png';
+import dosb from '../img/dosb.png';
+import lsb from '../img/lsb.png';
 import LogoItem from '../components/LogoItem';
 import PageSection from '../components/PageSection';
 import Membership from '../components/Membership';
@@ -54,11 +56,13 @@ export const IndexPageTemplate = ({
           <div className="logo-grid">
             <LogoItem url={dcb} title="DCB" subTitle="German Cricket Federation" redirectLink="https://www.cricket.de/" isInternalLink={false} bg="primary-light" />
             <LogoItem url={odcv} title="ODCV" subTitle="East German Cricket Association" redirectLink="https://www.facebook.com/ODCV-1296896147022686" isInternalLink={false} bg="primary-light" />
+            <LogoItem url={dosb} title="DOSB" subTitle="Integration Through Sport" redirectLink="https://integration.dosb.de/" isInternalLink={false} bg="primary-light" />
+            <LogoItem url={lsb} title="LSB" subTitle="Landessportbund Berlin" redirectLink="https://lsb-berlin.net/aktuelles/" isInternalLink={false} bg="primary-light" />
           </div>
         </PageSection>
         <PageSection title="SPONSORS" subTitle="Supporting the Team">
           <div className="logo-grid">
-            <LogoItem url={maak} title="MAAK" subTitle="Engineering & Construction in KSA" redirectLink="http://maakksa.com/" isInternalLink={false} bg="primary-light" />
+            <LogoItem url={msquare} title="M Square" subTitle="Engineering & Construction in KSA" redirectLink="http://www.msquareksa.com/" isInternalLink={false} bg="primary-light" />
           </div>
         </PageSection>
       </div>
