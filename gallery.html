@@ -20,17 +20,70 @@
     </script>
     <style>
         * { scroll-behavior: smooth; }
-        .nav-link { transition: color 0.3s ease; }
-        .nav-link:hover { color: #EF4444; }
-        .nav-link.active { color: #EF4444; font-weight: 600; }
-        .logo-container { display: flex; align-items: center; gap: 12px; }
-        .logo-placeholder {
-            width: 50px; height: 50px;
-            background: white;
-            border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 24px;
+        /* Logo Section */
+        .logo-section {
+            background: transparent;
+            padding: 0;
+            margin-right: 0;
+            margin-left: 0;
+            border-radius: 0;
+            box-shadow: none;
         }
+
+        .logo-section img {
+            height: 68px;
+            width: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-section img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Navigation - White Background */
+        nav {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation links - dark red text */
+        .nav-link {
+            color: #991B1B !important;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-link:hover {
+            color: #EF4444 !important;
+            transform: translateY(-1px);
+        }
+
+        .nav-link.active {
+            color: #EF4444 !important;
+            font-weight: 700;
+            border-bottom: 2px solid #EF4444;
+            padding-bottom: 2px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .logo-section img {
+                height: 52px;
+            }
+
+            nav .flex.justify-between.items-center {
+                min-height: 4rem !important;
+            }
+
+            #mobile-menu .nav-link {
+                color: #991B1B !important;
+                font-weight: 600;
+                font-size: 1.125rem;
+            }
+        }
+
         .mobile-menu { display: none; }
         .mobile-menu.active { display: block; }
         .page-hero {
@@ -72,14 +125,14 @@
 </head>
 <body class="bg-white">
     <!-- Navigation -->
-    <nav class="bg-bca-dark text-white sticky top-0 z-50 shadow-lg">
+    <nav class="bg-white text-bca-dark sticky top-0 z-50 shadow-lg">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="logo-container">
-                    <div class="logo-placeholder">
-                        <span style="color: #DC143C; font-weight: bold;">🏏</span>
-                    </div>
-                    <h1 class="text-2xl font-bold text-white">BCA</h1>
+            <div class="flex justify-between items-center" style="min-height: 4.5rem;">
+                <!-- LOGO -->
+                <div class="logo-section">
+                    <a href="index.html">
+                        <img src="img/bca-logo.svg" alt="Berlin Cricket Academy">
+                    </a>
                 </div>
                 <div class="hidden md:flex space-x-6">
                     <a href="index.html" class="nav-link">Home</a>
