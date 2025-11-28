@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Fixtures - Berlin Cricket Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bca-red': '#DC143C',
+                        'bca-light': '#EF4444',
+                        'bca-dark': '#991B1B'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { scroll-behavior: smooth; }
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover { color: #EF4444; }
+        .nav-link.active { color: #EF4444; font-weight: 600; }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .logo-placeholder {
+            width: 50px; height: 50px;
+            background: white;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+        }
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+        .page-hero {
+            background: linear-gradient(135deg, rgba(153, 27, 27, 0.90) 0%, rgba(220, 20, 60, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+        .fixture-card {
+            background: white;
+            border-left: 4px solid #DC143C;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .fixture-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(220, 20, 60, 0.2);
+        }
+        .team-tab {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .team-tab.active {
+            background: #DC143C;
+            color: white;
+            border-color: #DC143C;
+        }
+        .team-tab:hover:not(.active) {
+            background: #fef2f2;
+            border-color: #EF4444;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-bca-dark text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="logo-container">
+                    <div class="logo-placeholder">
+                        <span style="color: #DC143C; font-weight: bold;">🏏</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white">BCA</h1>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="teams.html" class="nav-link">Teams</a>
+                    <a href="fixtures.html" class="nav-link active">Fixtures</a>
+                    <a href="memberships.html" class="nav-link">Memberships</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="nav-link text-lg" title="Instagram">📷</a>
+                    <a href="#" class="nav-link text-lg" title="YouTube">▶️</a>
+                    <a href="#" class="nav-link text-lg" title="Facebook">f</a>
+                    <button class="md:hidden text-bca-light text-2xl" onclick="toggleMobileMenu()">☰</button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="nav-link py-2">Home</a>
+                    <a href="about.html" class="nav-link py-2">About</a>
+                    <a href="teams.html" class="nav-link py-2">Teams</a>
+                    <a href="fixtures.html" class="nav-link active py-2">Fixtures</a>
+                    <a href="memberships.html" class="nav-link py-2">Memberships</a>
+                    <a href="gallery.html" class="nav-link py-2">Gallery</a>
+                    <a href="contact.html" class="nav-link py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero text-white py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl font-bold mb-4">Match Fixtures</h1>
+            <p class="text-xl text-red-100">Upcoming matches and results</p>
+        </div>
+    </section>
+
+    <!-- Fixtures Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">Match Fixtures</h2>
+            <div class="h-1 w-20 bg-bca-red mb-8"></div>
+
+            <!-- Google Sheets Setup Instructions -->
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mb-8">
+                <h3 class="font-bold text-blue-900 mb-3">📋 Google Sheets Setup:</h3>
+                <div class="mb-4">
+                    <p class="font-semibold text-blue-900 mb-2">For Fixtures Sheet:</p>
+                    <ol class="text-blue-800 text-sm space-y-1 ml-4">
+                        <li>1. Create a Google Sheet with columns: Date, Team, Competition, Home Team, Away Team, Venue, Time, Status</li>
+                        <li>2. Set sharing to "Anyone with the link can view"</li>
+                        <li>3. Replace 'YOUR_SHEET_ID' in the code with your Sheet ID</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Team Filter Tabs -->
+            <div class="flex flex-wrap gap-4 mb-8">
+                <button class="team-tab active px-6 py-3 rounded-lg border-2 border-gray-300 font-semibold" onclick="filterFixtures('all')" data-team="all">
+                    All Teams
+                </button>
+                <button class="team-tab px-6 py-3 rounded-lg border-2 border-gray-300 font-semibold" onclick="filterFixtures('men-regionalliga')" data-team="men-regionalliga">
+                    Men's Regionalliga
+                </button>
+                <button class="team-tab px-6 py-3 rounded-lg border-2 border-gray-300 font-semibold" onclick="filterFixtures('men-verbandliga')" data-team="men-verbandliga">
+                    Men's Verbandliga
+                </button>
+                <button class="team-tab px-6 py-3 rounded-lg border-2 border-gray-300 font-semibold" onclick="filterFixtures('women')" data-team="women">
+                    Women's Team
+                </button>
+                <button class="team-tab px-6 py-3 rounded-lg border-2 border-gray-300 font-semibold" onclick="filterFixtures('youth')" data-team="youth">
+                    Youth Team
+                </button>
+            </div>
+
+            <!-- Fixtures Container -->
+            <div id="fixtures-container">
+                <!-- Sample Fixture Cards -->
+                <div class="fixture-card p-6 rounded-lg shadow-lg mb-4" data-team="men-regionalliga">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="flex-1 mb-4 md:mb-0">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="bg-bca-red text-white text-xs font-bold px-3 py-1 rounded">Men's Regionalliga</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded">Upcoming</span>
+                            </div>
+                            <div class="text-2xl font-bold text-bca-dark mb-2">
+                                Berlin Cricket Academy <span class="text-gray-500">vs</span> Berlin CC
+                            </div>
+                            <div class="text-gray-600 space-y-1">
+                                <p>🏆 <strong>Competition:</strong> Regionalliga</p>
+                                <p>📍 <strong>Venue:</strong> Am Glockenturm 1, Berlin Charlottenburg</p>
+                            </div>
+                        </div>
+                        <div class="text-center md:text-right">
+                            <div class="text-lg font-semibold text-bca-red mb-1">Saturday, April 12, 2025</div>
+                            <div class="text-xl font-bold text-gray-700">14:00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fixture-card p-6 rounded-lg shadow-lg mb-4" data-team="women">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="flex-1 mb-4 md:mb-0">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="bg-bca-red text-white text-xs font-bold px-3 py-1 rounded">Women's Team</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded">Upcoming</span>
+                            </div>
+                            <div class="text-2xl font-bold text-bca-dark mb-2">
+                                Berlin Cricket Academy Women <span class="text-gray-500">vs</span> Dresden Ladies
+                            </div>
+                            <div class="text-gray-600 space-y-1">
+                                <p>🏆 <strong>Competition:</strong> East German Bundesliga</p>
+                                <p>📍 <strong>Venue:</strong> Olympiastadion Maifeld</p>
+                            </div>
+                        </div>
+                        <div class="text-center md:text-right">
+                            <div class="text-lg font-semibold text-bca-red mb-1">Saturday, April 19, 2025</div>
+                            <div class="text-xl font-bold text-gray-700">15:00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fixture-card p-6 rounded-lg shadow-lg mb-4" data-team="men-verbandliga">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="flex-1 mb-4 md:mb-0">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="bg-bca-red text-white text-xs font-bold px-3 py-1 rounded">Men's Verbandliga</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded">Upcoming</span>
+                            </div>
+                            <div class="text-2xl font-bold text-bca-dark mb-2">
+                                BCA Verbandliga <span class="text-gray-500">vs</span> Leipzig CC
+                            </div>
+                            <div class="text-gray-600 space-y-1">
+                                <p>🏆 <strong>Competition:</strong> Verbandliga</p>
+                                <p>📍 <strong>Venue:</strong> Am Glockenturm 1, Berlin Charlottenburg</p>
+                            </div>
+                        </div>
+                        <div class="text-center md:text-right">
+                            <div class="text-lg font-semibold text-bca-red mb-1">Saturday, April 26, 2025</div>
+                            <div class="text-xl font-bold text-gray-700">13:00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fixture-card p-6 rounded-lg shadow-lg mb-4" data-team="youth">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                        <div class="flex-1 mb-4 md:mb-0">
+                            <div class="flex items-center gap-3 mb-3">
+                                <span class="bg-bca-red text-white text-xs font-bold px-3 py-1 rounded">Youth Team</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs font-semibold px-3 py-1 rounded">Upcoming</span>
+                            </div>
+                            <div class="text-2xl font-bold text-bca-dark mb-2">
+                                BCA Youth <span class="text-gray-500">vs</span> Potsdam Juniors
+                            </div>
+                            <div class="text-gray-600 space-y-1">
+                                <p>🏆 <strong>Competition:</strong> Youth League</p>
+                                <p>📍 <strong>Venue:</strong> Am Glockenturm 1, Berlin Charlottenburg</p>
+                            </div>
+                        </div>
+                        <div class="text-center md:text-right">
+                            <div class="text-lg font-semibold text-bca-red mb-1">Sunday, May 4, 2025</div>
+                            <div class="text-xl font-bold text-gray-700">11:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Template Button -->
+            <div class="mt-8 text-center">
+                <a href="#" class="inline-block bg-bca-red text-white font-bold py-3 px-8 rounded-lg hover:bg-red-700 transition shadow" onclick="downloadFixturesTemplate(); return false;">
+                    📥 Download Fixtures Template
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-bca-dark text-white py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold text-bca-light mb-4">Berlin Cricket Academy</h3>
+                    <p class="text-gray-300 text-sm">Building the future of cricket in Germany through excellence and inclusion.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="index.html" class="hover:text-bca-light transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-bca-light transition">About Us</a></li>
+                        <li><a href="teams.html" class="hover:text-bca-light transition">Teams</a></li>
+                        <li><a href="fixtures.html" class="hover:text-bca-light transition">Fixtures</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Resources</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="memberships.html" class="hover:text-bca-light transition">Memberships</a></li>
+                        <li><a href="gallery.html" class="hover:text-bca-light transition">Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-bca-light transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-2xl">📷</a>
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-2xl">▶️</a>
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-xl">f</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-bca-red pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 Berlin Cricket Academy. All rights reserved. Cricket for All.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        }
+
+        function filterFixtures(team) {
+            // Update active tab
+            document.querySelectorAll('.team-tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.team === team) {
+                    tab.classList.add('active');
+                }
+            });
+
+            // Filter fixtures
+            document.querySelectorAll('.fixture-card').forEach(card => {
+                if (team === 'all' || card.dataset.team === team) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function downloadFixturesTemplate() {
+            const csvContent = `Date,Team,Competition,Home Team,Away Team,Venue,Time,Status
+2025-04-12,Men's Regionalliga,Regionalliga,Berlin Cricket Academy,Berlin CC,Am Glockenturm 1,14:00,Upcoming
+2025-04-19,Women's Team,East German Bundesliga,BCA Women,Dresden Ladies,Olympiastadion Maifeld,15:00,Upcoming`;
+
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'BCA_Fixtures_Template.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            
+            alert('Fixtures template downloaded! Open this CSV in Google Sheets.');
+        }
+    </script>
+</body>
+</html>

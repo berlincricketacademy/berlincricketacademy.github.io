@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Teams - Berlin Cricket Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bca-red': '#DC143C',
+                        'bca-light': '#EF4444',
+                        'bca-dark': '#991B1B'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { scroll-behavior: smooth; }
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover { color: #EF4444; }
+        .nav-link.active { color: #EF4444; font-weight: 600; }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3);
+        }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .logo-placeholder {
+            width: 50px; height: 50px;
+            background: white;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+        }
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+        .page-hero {
+            background: linear-gradient(135deg, rgba(153, 27, 27, 0.90) 0%, rgba(220, 20, 60, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-bca-dark text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="logo-container">
+                    <div class="logo-placeholder">
+                        <span style="color: #DC143C; font-weight: bold;">🏏</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white">BCA</h1>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="teams.html" class="nav-link active">Teams</a>
+                    <a href="fixtures.html" class="nav-link">Fixtures</a>
+                    <a href="memberships.html" class="nav-link">Memberships</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="nav-link text-lg" title="Instagram">📷</a>
+                    <a href="#" class="nav-link text-lg" title="YouTube">▶️</a>
+                    <a href="#" class="nav-link text-lg" title="Facebook">f</a>
+                    <button class="md:hidden text-bca-light text-2xl" onclick="toggleMobileMenu()">☰</button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="nav-link py-2">Home</a>
+                    <a href="about.html" class="nav-link py-2">About</a>
+                    <a href="teams.html" class="nav-link active py-2">Teams</a>
+                    <a href="fixtures.html" class="nav-link py-2">Fixtures</a>
+                    <a href="memberships.html" class="nav-link py-2">Memberships</a>
+                    <a href="gallery.html" class="nav-link py-2">Gallery</a>
+                    <a href="contact.html" class="nav-link py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero text-white py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl font-bold mb-4">Our Teams</h1>
+            <p class="text-xl text-red-100">Join the right team for your skill level</p>
+        </div>
+    </section>
+
+    <!-- Teams Introduction -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">Our Teams</h2>
+            <div class="h-1 w-20 bg-bca-red mb-8"></div>
+            
+            <p class="text-gray-700 text-lg mb-12">Berlin Cricket Academy welcomes players of all ages and abilities across our extensive range of teams. We provide a welcoming, fun and competitive environment to allow every player to improve and fulfil their potential.</p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Men's Regionalliga -->
+                <div class="bg-bca-red p-8 rounded-lg card-hover text-white">
+                    <div class="text-5xl mb-4">🏆</div>
+                    <h3 class="text-2xl font-bold mb-3">Men's Regionalliga Team</h3>
+                    <p class="text-red-100 mb-4">Our primary men's team competing at the highest level in Regionalliga. Open to senior players of all abilities looking for competitive cricket.</p>
+                    <div class="bg-white bg-opacity-20 p-4 rounded mt-4">
+                        <p class="font-semibold">📍 Elite Competitive Level</p>
+                    </div>
+                </div>
+
+                <!-- Men's Verbandliga -->
+                <div class="bg-bca-red p-8 rounded-lg card-hover text-white">
+                    <div class="text-5xl mb-4">👥</div>
+                    <h3 class="text-2xl font-bold mb-3">Men's Verbandliga Team</h3>
+                    <p class="text-red-100 mb-4">Our secondary men's team competing in Verbandliga. Perfect for players developing their skills and gaining match experience.</p>
+                    <div class="bg-white bg-opacity-20 p-4 rounded mt-4">
+                        <p class="font-semibold">📍 Development Level</p>
+                    </div>
+                </div>
+
+                <!-- Women's Team -->
+                <div class="bg-bca-red p-8 rounded-lg card-hover text-white">
+                    <div class="text-5xl mb-4">👩</div>
+                    <h3 class="text-2xl font-bold mb-3">Women's Team</h3>
+                    <p class="text-red-100 mb-4">We actively encourage all girls and women from complete beginners to experienced players. No equipment necessary - we provide everything you need.</p>
+                    <div class="bg-white bg-opacity-20 p-4 rounded mt-4">
+                        <p class="font-semibold">📍 Champions of East German Bundesliga</p>
+                    </div>
+                </div>
+
+                <!-- Youth Team -->
+                <div class="bg-bca-red p-8 rounded-lg card-hover text-white">
+                    <div class="text-5xl mb-4">🧒</div>
+                    <h3 class="text-2xl font-bold mb-3">Youth Team (U19)</h3>
+                    <p class="text-red-100 mb-4">Welcome all junior players aged 8-19 of all abilities in a safe and friendly environment. We align with Cricket Germany talent pathway opportunities.</p>
+                    <div class="bg-white bg-opacity-20 p-4 rounded mt-4">
+                        <p class="font-semibold">📍 Future Stars Development</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join Our Teams -->
+    <section class="py-16 bg-bca-dark text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-4">Why Join Our Teams?</h2>
+            <div class="h-1 w-20 bg-bca-light mb-12"></div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-bca-red p-8 rounded-lg">
+                    <p class="text-lg font-semibold text-red-100 mb-2">⚡ ICC-Certified Coaching</p>
+                    <p class="text-gray-200">Guided by Level 2 & 3 certified professionals who bring international experience to every training session.</p>
+                </div>
+                <div class="bg-bca-red p-8 rounded-lg">
+                    <p class="text-lg font-semibold text-red-100 mb-2">🌍 International Community</p>
+                    <p class="text-gray-200">Players from diverse backgrounds and skill levels, united by their love for cricket.</p>
+                </div>
+                <div class="bg-bca-red p-8 rounded-lg">
+                    <p class="text-lg font-semibold text-red-100 mb-2">🏆 Proven Winners</p>
+                    <p class="text-gray-200">Multiple championship titles and counting. Be part of a winning team.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Schedule -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">Training Schedule</h2>
+            <div class="h-1 w-20 bg-bca-red mb-12"></div>
+            
+            <!-- Outdoor Training -->
+            <div class="mb-12">
+                <div class="bg-bca-dark text-white p-6 rounded-t-lg">
+                    <h3 class="text-2xl font-bold">🌞 Outdoor Training</h3>
+                    <p class="text-gray-200">March to September</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-b-lg">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow border-l-4 border-bca-red">
+                            <p class="text-lg font-semibold text-bca-dark mb-2">Senior Training</p>
+                            <p class="text-2xl font-bold text-bca-red">Every Wednesday</p>
+                            <p class="text-lg text-gray-600">17:00 - 20:30</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow border-l-4 border-bca-red">
+                            <p class="text-lg font-semibold text-bca-dark mb-2">Junior Training</p>
+                            <p class="text-2xl font-bold text-bca-red">Every Friday</p>
+                            <p class="text-lg text-gray-600">16:30 - 18:00</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow border-l-4 border-bca-red">
+                            <p class="text-lg font-semibold text-bca-dark mb-2">Ladies Training</p>
+                            <p class="text-2xl font-bold text-bca-red">Every Friday</p>
+                            <p class="text-lg text-gray-600">18:00 - 20:00</p>
+                        </div>
+                    </div>
+                    <p class="text-bca-dark mt-6 font-semibold text-center">📍 Location: Am Glockenturm 1, 14053 Berlin Charlottenburg</p>
+                </div>
+            </div>
+
+            <!-- Indoor Training -->
+            <div>
+                <div class="bg-bca-dark text-white p-6 rounded-t-lg">
+                    <h3 class="text-2xl font-bold">🏢 Indoor Training</h3>
+                    <p class="text-gray-200">Throughout the Year</p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-b-lg">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow border-l-4 border-bca-red">
+                            <p class="text-lg font-semibold text-bca-dark mb-2">Senior Training</p>
+                            <p class="text-2xl font-bold text-bca-red">Every Sunday</p>
+                            <p class="text-lg text-gray-600">15:00 - 18:00</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow border-l-4 border-bca-red">
+                            <p class="text-lg font-semibold text-bca-dark mb-2">Junior Training</p>
+                            <p class="text-2xl font-bold text-bca-red">Every Sunday</p>
+                            <p class="text-lg text-gray-600">10:00 - 13:00</p>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow border-l-4 border-bca-red">
+                            <p class="text-lg font-semibold text-bca-dark mb-2">Ladies Training</p>
+                            <p class="text-2xl font-bold text-bca-red">Every Sunday</p>
+                            <p class="text-lg text-gray-600">13:00 - 15:00</p>
+                        </div>
+                    </div>
+                    <p class="text-bca-dark mt-6 font-semibold text-center">📍 Indoor Location: Mildred-Harnack-Schule (Schulze-Boysen-Straße 12, 10365 Berlin)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold text-bca-dark mb-4">Ready to Join a Team?</h2>
+            <p class="text-gray-600 mb-8">Contact us to find out which team is right for you</p>
+            <a href="contact.html" class="inline-block bg-bca-red text-white font-bold py-3 px-8 rounded-lg hover:bg-red-700 transition shadow-lg">
+                Contact Us →
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-bca-dark text-white py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold text-bca-light mb-4">Berlin Cricket Academy</h3>
+                    <p class="text-gray-300 text-sm">Building the future of cricket in Germany through excellence and inclusion.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="index.html" class="hover:text-bca-light transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-bca-light transition">About Us</a></li>
+                        <li><a href="teams.html" class="hover:text-bca-light transition">Teams</a></li>
+                        <li><a href="fixtures.html" class="hover:text-bca-light transition">Fixtures</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Resources</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="memberships.html" class="hover:text-bca-light transition">Memberships</a></li>
+                        <li><a href="gallery.html" class="hover:text-bca-light transition">Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-bca-light transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-2xl">📷</a>
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-2xl">▶️</a>
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-xl">f</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-bca-red pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 Berlin Cricket Academy. All rights reserved. Cricket for All.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

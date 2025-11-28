@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berlin Cricket Academy - Cricket For All</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bca-red': '#DC143C',
+                        'bca-light': '#EF4444',
+                        'bca-dark': '#991B1B'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { scroll-behavior: smooth; }
+        .hero-bg {
+            background-image: url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(153, 27, 27, 0.70) 0%, rgba(220, 20, 60, 0.60) 100%);
+            z-index: 1;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0;
+            width: 20px; height: 20px;
+            background: #EF4444;
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #DC143C;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 8px; top: 20px;
+            width: 4px;
+            height: calc(100% + 10px);
+            background: #EF4444;
+        }
+        .timeline-item:last-child::after { display: none; }
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover { color: #EF4444; }
+        .nav-link.active { color: #EF4444; font-weight: 600; }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3);
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fef2f2 100%);
+            border-left: 4px solid #DC143C;
+        }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .logo-placeholder {
+            width: 50px; height: 50px;
+            background: white;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+        }
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+        
+        /* Instagram Slideshow Styles */
+        .instagram-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+        .instagram-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .instagram-slide {
+            min-width: 25%;
+            padding: 4px;
+            box-sizing: border-box;
+        }
+        @media (max-width: 768px) {
+            .instagram-slide { min-width: 50%; }
+        }
+        @media (max-width: 480px) {
+            .instagram-slide { min-width: 100%; }
+        }
+        .instagram-slide img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .instagram-slide:hover img {
+            transform: scale(1.05);
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(220, 20, 60, 0.9);
+            color: white;
+            border: none;
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            z-index: 10;
+            transition: background 0.3s ease;
+        }
+        .slider-btn:hover { background: #991B1B; }
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+        
+        /* Announcement Banner Styles */
+        .announcement-banner {
+            position: relative;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            animation: slideDown 0.5s ease-out;
+        }
+        .announcement-banner.info {
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+        }
+        .announcement-banner.warning {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+        }
+        .announcement-banner.important {
+            background: linear-gradient(135deg, #DC143C 0%, #991B1B 100%);
+        }
+        .announcement-banner.success {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+        .announcement-close {
+            cursor: pointer;
+            padding: 8px;
+            margin-left: 16px;
+            transition: transform 0.2s;
+            flex-shrink: 0;
+        }
+        .announcement-close:hover {
+            transform: scale(1.2);
+        }
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-bca-dark text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="logo-container">
+                    <div class="logo-placeholder">
+                        <span style="color: #DC143C; font-weight: bold;">🏏</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white">BCA</h1>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link active">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="teams.html" class="nav-link">Teams</a>
+                    <a href="fixtures.html" class="nav-link">Fixtures</a>
+                    <a href="memberships.html" class="nav-link">Memberships</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="nav-link text-lg" title="Instagram">📷</a>
+                    <a href="#" class="nav-link text-lg" title="YouTube">▶️</a>
+                    <a href="#" class="nav-link text-lg" title="Facebook">f</a>
+                    <button class="md:hidden text-bca-light text-2xl" onclick="toggleMobileMenu()">☰</button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="nav-link active py-2">Home</a>
+                    <a href="about.html" class="nav-link py-2">About</a>
+                    <a href="teams.html" class="nav-link py-2">Teams</a>
+                    <a href="fixtures.html" class="nav-link py-2">Fixtures</a>
+                    <a href="memberships.html" class="nav-link py-2">Memberships</a>
+                    <a href="gallery.html" class="nav-link py-2">Gallery</a>
+                    <a href="contact.html" class="nav-link py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Announcements Banner -->
+    <div id="announcements-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-32 md:py-40">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative" style="z-index: 10;">
+            <div class="text-center">
+                <h2 class="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">Berlin Cricket Academy</h2>
+                <p class="text-xl md:text-2xl text-red-100 mb-6 font-semibold">Cricket For All - Welcoming Players of Every Age, Ability & Background</p>
+                <p class="text-lg text-gray-100 mb-8 max-w-2xl mx-auto">A vibrant, inclusive community of 75+ members where everyone belongs</p>
+                <a href="contact.html" class="inline-block bg-white text-bca-red font-bold py-3 px-8 rounded-lg hover:bg-red-50 transition shadow-lg">Join Us Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (Condensed) -->
+    <section id="about" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">About Berlin Cricket Academy</h2>
+            <div class="h-1 w-20 bg-bca-red mb-8"></div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        Founded in 2020, Berlin Cricket Academy is Berlin's first and only cricket club established specifically for kids and women, with strong participation from men. We've grown into a vibrant community of <strong>75+ members</strong>, receiving over <strong>400 membership requests</strong> in 2025.
+                    </p>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        We train at the iconic <strong>Olympiastadion</strong> and embark on annual <strong>international tours to Romania, Prague, and Poland</strong>.
+                    </p>
+                    <a href="about.html" class="inline-block bg-bca-red text-white font-bold py-3 px-6 rounded-lg hover:bg-red-700 transition shadow">
+                        Learn More →
+                    </a>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-gray-200 h-40 rounded-lg flex items-center justify-center overflow-hidden">
+                        <img src="YOUR_OLYMPIASTADION_IMAGE_URL" alt="BCA Training at Olympiastadion" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <span class="text-gray-500 text-center hidden flex-col items-center justify-center w-full h-full">
+                            <p class="text-5xl mb-2">🏟️</p>
+                            <p>Olympiastadion Training</p>
+                        </span>
+                    </div>
+                    <div class="bg-gray-200 h-40 rounded-lg flex items-center justify-center overflow-hidden">
+                        <img src="YOUR_TOUR_IMAGE_URL" alt="BCA International Tours" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <span class="text-gray-500 text-center hidden flex-col items-center justify-center w-full h-full">
+                            <p class="text-5xl mb-2">✈️</p>
+                            <p>International Cricket Tours</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Stats -->
+            <div class="grid md:grid-cols-4 gap-6 mt-12">
+                <div class="stat-card p-6 rounded-lg shadow text-center">
+                    <p class="text-bca-red text-4xl font-bold mb-2">75+</p>
+                    <p class="text-gray-700 font-semibold">Members</p>
+                </div>
+                <div class="stat-card p-6 rounded-lg shadow text-center">
+                    <p class="text-bca-red text-4xl font-bold mb-2">20+</p>
+                    <p class="text-gray-700 font-semibold">Children</p>
+                </div>
+                <div class="stat-card p-6 rounded-lg shadow text-center">
+                    <p class="text-bca-red text-4xl font-bold mb-2">15+</p>
+                    <p class="text-gray-700 font-semibold">Women</p>
+                </div>
+                <div class="stat-card p-6 rounded-lg shadow text-center">
+                    <p class="text-bca-red text-4xl font-bold mb-2">400+</p>
+                    <p class="text-gray-700 font-semibold">2025 Requests</p>
+                </div>
+            </div>
+
+            <!-- Highlights - Two blocks side by side -->
+            <div class="grid md:grid-cols-2 gap-8 mt-12">
+                <div class="bg-gradient-to-br from-bca-red to-red-700 p-8 rounded-lg shadow-xl text-white">
+                    <div class="text-5xl mb-4">🏟️</div>
+                    <h3 class="text-2xl font-bold mb-3">Train at the Olympiastadion</h3>
+                    <p class="text-red-50">Experience world-class cricket training at Berlin's legendary Olympiastadion, where sporting history comes alive. Our outdoor sessions bring together Olympic grandeur with cricket excellence.</p>
+                </div>
+                <div class="bg-gradient-to-br from-bca-dark to-bca-red p-8 rounded-lg shadow-xl text-white">
+                    <div class="text-5xl mb-4">✈️</div>
+                    <h3 class="text-2xl font-bold mb-3">International Cricket Tours</h3>
+                    <p class="text-red-50">Join our annual tours to Romania, Prague, and Poland. Compete internationally, experience new cultures, and create unforgettable memories while representing Berlin Cricket Academy across Europe.</p>
+                </div>
+            </div>
+            
+            <!-- Why Join Our Teams -->
+            <div class="mt-12 bg-bca-dark text-white p-8 rounded-lg shadow-xl">
+                <h3 class="text-2xl font-bold mb-6">Why Join Our Teams?</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div>
+                        <p class="text-lg font-semibold text-red-100 mb-2">⚡ ICC-Certified Coaching</p>
+                        <p class="text-gray-200">Guided by Level 2 & 3 certified professionals</p>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-red-100 mb-2">🌍 International Community</p>
+                        <p class="text-gray-200">Players from diverse backgrounds and skill levels</p>
+                    </div>
+                    <div>
+                        <p class="text-lg font-semibold text-red-100 mb-2">🏆 Proven Winners</p>
+                        <p class="text-gray-200">Multiple championship titles and counting</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Timeline -->
+    <section id="achievements" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">Our Achievements</h2>
+            <div class="h-1 w-20 bg-bca-red mb-12"></div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <div class="timeline-item">
+                        <h3 class="text-2xl font-bold text-bca-dark mb-2">2022</h3>
+                        <p class="text-gray-700 font-semibold">🏆 East German Women's Bundesliga Champions</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="text-2xl font-bold text-bca-dark mb-2">2022</h3>
+                        <p class="text-gray-700 font-semibold">🏆 Prague Men's T10 Champions</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="text-2xl font-bold text-bca-dark mb-2">2022</h3>
+                        <p class="text-gray-700 font-semibold">🏆 European Cricket Series Winners (Men)</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="timeline-item">
+                        <h3 class="text-2xl font-bold text-bca-dark mb-2">2024</h3>
+                        <p class="text-gray-700 font-semibold">🏆 East German Men's Association League Champions</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="text-2xl font-bold text-bca-dark mb-2">2025</h3>
+                        <p class="text-gray-700 font-semibold">🥈 ECC Poland Cricket Championship (Runners-up)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Initiatives Section -->
+    <section id="initiatives" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">Our Initiatives</h2>
+            <div class="h-1 w-20 bg-bca-red mb-12"></div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg border-t-4 border-bca-red">
+                    <div class="text-5xl mb-4">🌟</div>
+                    <h3 class="text-2xl font-bold text-bca-dark mb-3">Youth Talent Development</h3>
+                    <p class="text-gray-700">Comprehensive programs for selecting, coaching, and preparing young talent from an early age.</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg border-t-4 border-bca-red">
+                    <div class="text-5xl mb-4">👩</div>
+                    <h3 class="text-2xl font-bold text-bca-dark mb-3">Women's Cricket</h3>
+                    <p class="text-gray-700">Dedicated initiatives promoting women's participation and empowerment in cricket.</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg border-t-4 border-bca-red">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <h3 class="text-2xl font-bold text-bca-dark mb-3">Inclusive Community</h3>
+                    <p class="text-gray-700">Building a vibrant community across all age groups and backgrounds with global diversity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Slideshow Section -->
+    <section id="instagram" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">Follow Our Journey</h2>
+            <div class="h-1 w-20 bg-bca-red mb-4"></div>
+            
+            <div class="flex items-center justify-between mb-8">
+                <a href="https://www.instagram.com/berlincricketacademy/" target="_blank" class="inline-flex items-center text-bca-red font-bold text-xl hover:text-bca-dark transition">
+                    <span class="text-3xl mr-2">📷</span> @berlincricketacademy
+                </a>
+                <a href="gallery.html" class="text-bca-red font-semibold hover:text-bca-dark transition">
+                    View All Gallery →
+                </a>
+            </div>
+
+            <!-- Instagram Slideshow -->
+            <div class="instagram-slider shadow-xl">
+                <button class="slider-btn prev" onclick="slideInstagram(-1)">❮</button>
+                <div class="instagram-track" id="instagramTrack">
+                    <div class="instagram-slide">
+                        <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&h=400&fit=crop" alt="Cricket Training">
+                    </div>
+                    <div class="instagram-slide">
+                        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=400&h=400&fit=crop" alt="Team Photo">
+                    </div>
+                    <div class="instagram-slide">
+                        <img src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=400&h=400&fit=crop" alt="Cricket Match">
+                    </div>
+                    <div class="instagram-slide">
+                        <img src="https://images.unsplash.com/photo-1587329310686-91414b8e3cb7?w=400&h=400&fit=crop" alt="Cricket Practice">
+                    </div>
+                    <div class="instagram-slide">
+                        <img src="https://images.unsplash.com/photo-1562077772-3bd90f14eec3?w=400&h=400&fit=crop" alt="Cricket Stadium">
+                    </div>
+                    <div class="instagram-slide">
+                        <img src="https://images.unsplash.com/photo-1593766788306-28561086694e?w=400&h=400&fit=crop" alt="Cricket Ball">
+                    </div>
+                    <div class="instagram-slide">
+                        <img src="https://images.unsplash.com/photo-1580629905303-faaa03202631?w=400&h=400&fit=crop" alt="Cricket Bat">
+                    </div>
+                    <div class="instagram-slide">
+                        <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=400&h=400&fit=crop" alt="Cricket Ground">
+                    </div>
+                </div>
+                <button class="slider-btn next" onclick="slideInstagram(1)">❯</button>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="https://www.instagram.com/berlincricketacademy/" target="_blank" class="inline-block bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition shadow-lg">
+                    Follow on Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Affiliates Section -->
+    <section id="affiliates" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">Our Affiliates</h2>
+            <div class="h-1 w-20 bg-bca-red mb-12"></div>
+            
+            <p class="text-gray-700 text-lg mb-8">We are proud partners with leading cricket organizations and boards:</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center card-hover border-t-4 border-bca-red">
+                    <div class="h-20 bg-gray-200 rounded mb-4 flex items-center justify-center">
+                        <span class="text-gray-500 text-sm">DCB Logo</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-bca-dark">German Cricket Board (DCB)</h3>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center card-hover border-t-4 border-bca-red">
+                    <div class="h-20 bg-gray-200 rounded mb-4 flex items-center justify-center">
+                        <span class="text-gray-500 text-sm">ODCV Logo</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-bca-dark">ODCV</h3>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center card-hover border-t-4 border-bca-red">
+                    <div class="h-20 bg-gray-200 rounded mb-4 flex items-center justify-center">
+                        <span class="text-gray-500 text-sm">LSB Logo</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-bca-dark">LSB</h3>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg text-center card-hover border-t-4 border-bca-red">
+                    <div class="h-20 bg-gray-200 rounded mb-4 flex items-center justify-center">
+                        <span class="text-gray-500 text-sm">DOSB Logo</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-bca-dark">DOSB</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsors Section -->
+    <section id="sponsors" class="py-16 bg-bca-dark text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-4">Our Sponsor</h2>
+            <div class="h-1 w-20 bg-bca-light mb-8"></div>
+            
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                <div class="bg-bca-red p-8 rounded-lg text-center card-hover shadow-xl max-w-sm w-full">
+                    <div class="h-32 bg-white rounded mb-4 flex items-center justify-center">
+                        <span class="text-gray-500">Sponsor Logo</span>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Official Sponsor</h3>
+                    <p class="text-gray-200 text-sm">Supporting Berlin Cricket Academy</p>
+                </div>
+                <div class="text-center md:text-left">
+                    <p class="text-gray-200 mb-4 text-lg">Interested in sponsoring<br>Berlin Cricket Academy?</p>
+                    <a href="contact.html" class="inline-block bg-white text-bca-red font-bold py-3 px-8 rounded-lg hover:bg-red-50 transition shadow-lg">Become a Sponsor</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Get In Touch Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">Get In Touch</h2>
+            <div class="h-1 w-20 bg-bca-red mb-12"></div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-bca-dark mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <p class="font-semibold text-bca-dark mb-2">📧 Email</p>
+                            <p class="text-gray-700"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e78e898188a78582958b8e8984958e848c829386848683828a9ec984888a">[email&#160;protected]</a></p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <p class="font-semibold text-bca-dark mb-2">📱 Phone</p>
+                            <p class="text-gray-700">+49 152 27672304 (English)</p>
+                            <p class="text-gray-700">+49 172 7938141 (German)</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <p class="font-semibold text-bca-dark mb-2">📍 Location</p>
+                            <p class="text-gray-700">Am Glockenturm 1<br>14053 Berlin Charlottenburg<br>Germany</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow">
+                            <p class="font-semibold text-bca-dark mb-2">⏰ Training Hours</p>
+                            <p class="text-gray-700">Wednesday: 17:00 - 20:30<br>Friday: 16:30 - 20:00</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-bca-red">
+                    <h3 class="text-2xl font-bold text-bca-dark mb-6">Join Our Community</h3>
+                    <p class="text-gray-700 mb-6">Fill out the form to express your interest in joining Berlin Cricket Academy. We'll get back to you shortly!</p>
+                    
+                    <!-- Google Form Embed Container -->
+                    <div id="google-form-container" class="bg-gray-50 p-6 rounded-lg border-2 border-dashed border-bca-red text-center">
+                        <p class="text-bca-red font-bold mb-4">📋 Google Form Embed Area</p>
+                        <p class="text-sm text-gray-600">Replace this div with your Google Form iframe</p>
+                        <p class="text-xs text-gray-400 mt-4">Example:<br>&lt;iframe src="your-google-form-url" width="100%" height="800"&gt;&lt;/iframe&gt;</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-bca-dark text-white py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold text-bca-light mb-4">Berlin Cricket Academy</h3>
+                    <p class="text-gray-300 text-sm">Building the future of cricket in Germany through excellence and inclusion.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="about.html" class="hover:text-bca-light transition">About Us</a></li>
+                        <li><a href="teams.html" class="hover:text-bca-light transition">Teams</a></li>
+                        <li><a href="fixtures.html" class="hover:text-bca-light transition">Fixtures</a></li>
+                        <li><a href="memberships.html" class="hover:text-bca-light transition">Memberships</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Resources</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="gallery.html" class="hover:text-bca-light transition">Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-bca-light transition">Contact</a></li>
+                        <li><a href="#achievements" class="hover:text-bca-light transition">Achievements</a></li>
+                        <li><a href="#initiatives" class="hover:text-bca-light transition">Initiatives</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-2xl">📷</a>
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-2xl">▶️</a>
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-xl">f</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-bca-red pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 Berlin Cricket Academy. All rights reserved. Cricket for All.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ============================================
+        // ANNOUNCEMENTS SYSTEM
+        // ============================================
+        
+        // CONFIGURATION: Replace with your Google Sheet details for announcements
+        const ANNOUNCEMENTS_SHEET_ID = 'YOUR_ANNOUNCEMENTS_SHEET_ID';
+        const ANNOUNCEMENTS_SHEET_NAME = 'Announcements';
+        
+        // Sample announcements for demonstration
+        const sampleAnnouncements = [
+            {
+                title: '🏏 Registration Open',
+                message: 'Registration for 2025 season now open! Limited spots available.',
+                type: 'important',
+                show: 'Yes',
+                link: 'contact.html'
+            }
+        ];
+
+        async function loadAnnouncements() {
+            let announcements = sampleAnnouncements;
+            
+            if (ANNOUNCEMENTS_SHEET_ID !== 'YOUR_ANNOUNCEMENTS_SHEET_ID') {
+                try {
+                    const url = `https://docs.google.com/spreadsheets/d/${ANNOUNCEMENTS_SHEET_ID}/gviz/tq?tqx=out:json&sheet=${ANNOUNCEMENTS_SHEET_NAME}`;
+                    const response = await fetch(url);
+                    const text = await response.text();
+                    const json = JSON.parse(text.substring(47).slice(0, -2));
+                    
+                    announcements = json.table.rows.map(row => ({
+                        title: row.c[0]?.v || '',
+                        message: row.c[1]?.v || '',
+                        type: row.c[2]?.v || 'info',
+                        show: row.c[3]?.v || 'No',
+                        link: row.c[4]?.v || ''
+                    })).filter(a => a.show.toLowerCase() === 'yes');
+                } catch (error) {
+                    console.log('Using sample announcements');
+                }
+            }
+            
+            displayAnnouncements(announcements.filter(a => a.show.toLowerCase() === 'yes'));
+        }
+
+        function displayAnnouncements(announcements) {
+            const container = document.getElementById('announcements-container');
+            container.innerHTML = '';
+            
+            announcements.forEach((announcement, index) => {
+                const banner = document.createElement('div');
+                banner.className = `announcement-banner ${announcement.type}`;
+                banner.id = `announcement-${index}`;
+                
+                const content = document.createElement('div');
+                content.className = 'flex-1 text-white';
+                content.innerHTML = `
+                    <span class="font-bold">${announcement.title}</span>
+                    <span class="ml-2">${announcement.message}</span>
+                    ${announcement.link ? `<a href="${announcement.link}" class="ml-2 underline font-semibold">Learn More →</a>` : ''}
+                `;
+                
+                const closeBtn = document.createElement('span');
+                closeBtn.className = 'announcement-close text-white text-xl';
+                closeBtn.innerHTML = '✕';
+                closeBtn.onclick = () => {
+                    banner.style.animation = 'slideUp 0.3s ease-out forwards';
+                    setTimeout(() => banner.remove(), 300);
+                };
+                
+                banner.appendChild(content);
+                banner.appendChild(closeBtn);
+                container.appendChild(banner);
+            });
+        }
+
+        // Add slideUp animation
+        const announcementStyle = document.createElement('style');
+        announcementStyle.textContent = `
+            @keyframes slideUp {
+                from { transform: translateY(0); opacity: 1; }
+                to { transform: translateY(-100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(announcementStyle);
+
+        // Load announcements on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadAnnouncements();
+        });
+    </script>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        }
+        
+        // Instagram Slideshow
+        let currentSlide = 0;
+        const slidesPerView = window.innerWidth <= 480 ? 1 : window.innerWidth <= 768 ? 2 : 4;
+        const totalSlides = 8;
+        const maxSlide = totalSlides - slidesPerView;
+        
+        function slideInstagram(direction) {
+            const track = document.getElementById('instagramTrack');
+            currentSlide += direction;
+            
+            if (currentSlide < 0) currentSlide = maxSlide;
+            if (currentSlide > maxSlide) currentSlide = 0;
+            
+            const slideWidth = 100 / slidesPerView;
+            track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+        }
+        
+        // Auto-slide ever

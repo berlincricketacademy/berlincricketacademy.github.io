@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Berlin Cricket Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bca-red': '#DC143C',
+                        'bca-light': '#EF4444',
+                        'bca-dark': '#991B1B'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { scroll-behavior: smooth; }
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover { color: #EF4444; }
+        .nav-link.active { color: #EF4444; font-weight: 600; }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3);
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fef2f2 100%);
+            border-left: 4px solid #DC143C;
+        }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .logo-placeholder {
+            width: 50px; height: 50px;
+            background: white;
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+        }
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+        .page-hero {
+            background: linear-gradient(135deg, rgba(153, 27, 27, 0.90) 0%, rgba(220, 20, 60, 0.85) 100%),
+                        url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0;
+            width: 20px; height: 20px;
+            background: #EF4444;
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #DC143C;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 8px; top: 20px;
+            width: 4px;
+            height: calc(100% + 10px);
+            background: #EF4444;
+        }
+        .timeline-item:last-child::after { display: none; }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-bca-dark text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="logo-container">
+                    <div class="logo-placeholder">
+                        <span style="color: #DC143C; font-weight: bold;">🏏</span>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white">BCA</h1>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                    <a href="teams.html" class="nav-link">Teams</a>
+                    <a href="fixtures.html" class="nav-link">Fixtures</a>
+                    <a href="memberships.html" class="nav-link">Memberships</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="nav-link text-lg" title="Instagram">📷</a>
+                    <a href="#" class="nav-link text-lg" title="YouTube">▶️</a>
+                    <a href="#" class="nav-link text-lg" title="Facebook">f</a>
+                    <button class="md:hidden text-bca-light text-2xl" onclick="toggleMobileMenu()">☰</button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="nav-link py-2">Home</a>
+                    <a href="about.html" class="nav-link active py-2">About</a>
+                    <a href="teams.html" class="nav-link py-2">Teams</a>
+                    <a href="fixtures.html" class="nav-link py-2">Fixtures</a>
+                    <a href="memberships.html" class="nav-link py-2">Memberships</a>
+                    <a href="gallery.html" class="nav-link py-2">Gallery</a>
+                    <a href="contact.html" class="nav-link py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero text-white py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl font-bold mb-4">About Us</h1>
+            <p class="text-xl text-red-100">Learn more about Berlin Cricket Academy</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">About Berlin Cricket Academy</h2>
+            <div class="h-1 w-20 bg-bca-red mb-8"></div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        Founded in 2020, <strong>Berlin Cricket Academy (BCA)</strong> is Berlin's first and only cricket club established specifically for kids and women, with strong participation from men. In just five years, we've grown into a vibrant community of <strong>75+ members</strong>, receiving over <strong>400 membership requests</strong> in 2025 alone.
+                    </p>
+                    <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                        Our members come from diverse backgrounds and nations, united by their passion for cricket. We train at the iconic <strong>Olympiastadion</strong> in the heart of Berlin and embark on annual <strong>international tours to Romania, Prague, and Poland</strong>, giving our players invaluable European cricket experience.
+                    </p>
+                    <p class="text-gray-700 text-lg leading-relaxed">
+                        Whether you're a complete beginner or an experienced player, BCA offers professional coaching, competitive opportunities, and a welcoming community where everyone belongs.
+                    </p>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-gray-200 h-48 rounded-lg flex items-center justify-center overflow-hidden">
+                        <img src="YOUR_OLYMPIASTADION_IMAGE_URL" alt="BCA Training at Olympiastadion" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <span class="text-gray-500 text-center hidden flex-col items-center justify-center w-full h-full">
+                            <p class="text-5xl mb-2">🏟️</p>
+                            <p>Olympiastadion Training</p>
+                        </span>
+                    </div>
+                    <div class="bg-gray-200 h-48 rounded-lg flex items-center justify-center overflow-hidden">
+                        <img src="YOUR_TOUR_IMAGE_URL" alt="BCA International Tours" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+                        <span class="text-gray-500 text-center hidden flex-col items-center justify-center w-full h-full">
+                            <p class="text-5xl mb-2">✈️</p>
+                            <p>International Cricket Tours</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Stats -->
+            <div class="grid md:grid-cols-4 gap-6 mt-12">
+                <div class="stat-card p-6 rounded-lg shadow text-center">
+                    <p class="text-bca-red text-4xl font-bold mb-2">75+</p>
+                    <p class="text-gray-700 font-semibold">Members</p>
+                </div>
+                <div class="stat-card p-6 rounded-lg shadow text-center">
+                    <p class="text-bca-red text-4xl font-bold mb-2">20+</p>
+                    <p class="text-gray-700 font-semibold">Children</p>
+                </div>
+                <div class="stat-card p-6 rounded-lg shadow text-center">
+                    <p class="text-bca-red text-4xl font-bold mb-2">15+</p>
+                    <p class="text-gray-700 font-semibold">Women</p>
+                </div>
+                <div class="stat-card p-6 rounded-lg shadow text-center">
+                    <p class="text-bca-red text-4xl font-bold mb-2">400+</p>
+                    <p class="text-gray-700 font-semibold">2025 Requests</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">Our Mission</h2>
+            <div class="h-1 w-20 bg-bca-red mb-8"></div>
+            
+            <div class="bg-gradient-to-br from-bca-red to-red-700 p-8 rounded-lg shadow-xl text-white">
+                <p class="text-xl leading-relaxed mb-6">
+                    <strong>"Cricket For All"</strong> - We believe everyone deserves the opportunity to experience the joy of cricket, regardless of age, gender, background, or skill level.
+                </p>
+                <p class="text-lg text-red-50 leading-relaxed">
+                    Our mission is to develop cricket in Berlin by providing world-class coaching, creating competitive opportunities, and building an inclusive community that celebrates diversity. We are committed to nurturing young talent, empowering women in cricket, and representing Berlin on the European stage.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">What Makes Us Special</h2>
+            <div class="h-1 w-20 bg-bca-red mb-12"></div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-bca-red to-red-700 p-8 rounded-lg shadow-xl text-white">
+                    <div class="text-5xl mb-4">🏟️</div>
+                    <h3 class="text-2xl font-bold mb-3">Train at the Olympiastadion</h3>
+                    <p class="text-red-50">Experience world-class cricket training at Berlin's legendary Olympiastadion, where sporting history comes alive. Our outdoor sessions bring together Olympic grandeur with cricket excellence.</p>
+                </div>
+                <div class="bg-gradient-to-br from-bca-dark to-bca-red p-8 rounded-lg shadow-xl text-white">
+                    <div class="text-5xl mb-4">✈️</div>
+                    <h3 class="text-2xl font-bold mb-3">International Cricket Tours</h3>
+                    <p class="text-red-50">Join our annual tours to Romania, Prague, and Poland. Compete internationally, experience new cultures, and create unforgettable memories while representing Berlin Cricket Academy across Europe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Management Team -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">Our Management Team</h2>
+            <div class="h-1 w-20 bg-bca-red mb-12"></div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Mohammed Musthafa -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center card-hover border-t-4 border-bca-red">
+                    <div class="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                        <span class="text-6xl">👤</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-bca-dark mb-2">Mohammed Musthafa</h3>
+                    <p class="text-bca-red font-semibold mb-4">Founder & Head Coach</p>
+                    <ul class="text-gray-600 text-sm text-left space-y-2">
+                        <li>🏅 ICC Level 3 Umpire (Elite Panel for Germany)</li>
+                        <li>🎓 ICC Level 2 Coach</li>
+                        <li>📚 ICC Level 1 Coaches Tutor</li>
+                    </ul>
+                </div>
+                
+                <!-- Ayesha K -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center card-hover border-t-4 border-bca-red">
+                    <div class="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                        <span class="text-6xl">👤</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-bca-dark mb-2">Ayesha K</h3>
+                    <p class="text-bca-red font-semibold mb-4">Women's Cricket Lead</p>
+                    <ul class="text-gray-600 text-sm text-left space-y-2">
+                        <li>🏏 Head of Amateur Cricket, German Cricket Board</li>
+                        <li>👩 Women's Team Development</li>
+                        <li>🌟 Community Outreach</li>
+                    </ul>
+                </div>
+                
+                <!-- Gokkulraj V P -->
+                <div class="bg-white p-8 rounded-lg shadow-lg text-center card-hover border-t-4 border-bca-red">
+                    <div class="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-6 flex items-center justify-center overflow-hidden">
+                        <span class="text-6xl">👤</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-bca-dark mb-2">Gokkulraj V P</h3>
+                    <p class="text-bca-red font-semibold mb-4">Youth Development Officer</p>
+                    <ul class="text-gray-600 text-sm text-left space-y-2">
+                        <li>🧒 Youth Officer, East German Cricket Board</li>
+                        <li>⚡ Junior Talent Development</li>
+                        <li>🎯 Pathway Programs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">Our Achievements</h2>
+            <div class="h-1 w-20 bg-bca-red mb-12"></div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <div class="timeline-item">
+                        <h3 class="text-2xl font-bold text-bca-dark mb-2">2022</h3>
+                        <p class="text-gray-700 font-semibold">🏆 East German Women's Bundesliga Champions</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="text-2xl font-bold text-bca-dark mb-2">2022</h3>
+                        <p class="text-gray-700 font-semibold">🏆 Prague Men's T10 Champions</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="text-2xl font-bold text-bca-dark mb-2">2022</h3>
+                        <p class="text-gray-700 font-semibold">🏆 European Cricket Series Winners (Men)</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="timeline-item">
+                        <h3 class="text-2xl font-bold text-bca-dark mb-2">2024</h3>
+                        <p class="text-gray-700 font-semibold">🏆 East German Men's Association League Champions</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h3 class="text-2xl font-bold text-bca-dark mb-2">2025</h3>
+                        <p class="text-gray-700 font-semibold">🥈 ECC Poland Cricket Championship (Runners-up)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Initiatives -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-bca-dark mb-4">Our Initiatives</h2>
+            <div class="h-1 w-20 bg-bca-red mb-12"></div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg border-t-4 border-bca-red">
+                    <div class="text-5xl mb-4">🌟</div>
+                    <h3 class="text-2xl font-bold text-bca-dark mb-3">Youth Talent Development</h3>
+                    <p class="text-gray-700">Comprehensive programs for selecting, coaching, and preparing young talent from an early age. We align with Cricket Germany's talent pathway opportunities.</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg border-t-4 border-bca-red">
+                    <div class="text-5xl mb-4">👩</div>
+                    <h3 class="text-2xl font-bold text-bca-dark mb-3">Women's Cricket</h3>
+                    <p class="text-gray-700">Dedicated initiatives promoting women's participation and empowerment in cricket. Our women's team are the reigning East German Bundesliga Champions.</p>
+                </div>
+                <div class="card-hover bg-white p-8 rounded-lg shadow-lg border-t-4 border-bca-red">
+                    <div class="text-5xl mb-4">🤝</div>
+                    <h3 class="text-2xl font-bold text-bca-dark mb-3">Inclusive Community</h3>
+                    <p class="text-gray-700">Building a vibrant community across all age groups and backgrounds. Our members come from India, Germany, Pakistan, Sri Lanka, Afghanistan, Australia, England and more.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join -->
+    <section class="py-16 bg-bca-dark text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-4">Why Join Our Teams?</h2>
+            <div class="h-1 w-20 bg-bca-light mb-12"></div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-bca-red p-8 rounded-lg">
+                    <p class="text-lg font-semibold text-red-100 mb-2">⚡ ICC-Certified Coaching</p>
+                    <p class="text-gray-200">Guided by Level 2 & 3 certified professionals who bring international experience to every training session.</p>
+                </div>
+                <div class="bg-bca-red p-8 rounded-lg">
+                    <p class="text-lg font-semibold text-red-100 mb-2">🌍 International Community</p>
+                    <p class="text-gray-200">Players from diverse backgrounds and skill levels, united by their love for cricket.</p>
+                </div>
+                <div class="bg-bca-red p-8 rounded-lg">
+                    <p class="text-lg font-semibold text-red-100 mb-2">🏆 Proven Winners</p>
+                    <p class="text-gray-200">Multiple championship titles and counting. Be part of a winning team.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="contact.html" class="inline-block bg-white text-bca-red font-bold py-3 px-8 rounded-lg hover:bg-red-50 transition shadow-lg">
+                    Join Us Today →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-bca-dark text-white py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold text-bca-light mb-4">Berlin Cricket Academy</h3>
+                    <p class="text-gray-300 text-sm">Building the future of cricket in Germany through excellence and inclusion.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="index.html" class="hover:text-bca-light transition">Home</a></li>
+                        <li><a href="about.html" class="hover:text-bca-light transition">About Us</a></li>
+                        <li><a href="teams.html" class="hover:text-bca-light transition">Teams</a></li>
+                        <li><a href="fixtures.html" class="hover:text-bca-light transition">Fixtures</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Resources</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="memberships.html" class="hover:text-bca-light transition">Memberships</a></li>
+                        <li><a href="gallery.html" class="hover:text-bca-light transition">Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-bca-light transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-2xl">📷</a>
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-2xl">▶️</a>
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-xl">f</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-bca-red pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 Berlin Cricket Academy. All rights reserved. Cricket for All.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
