@@ -1,2 +1,5 @@
 # Claude Code agent folder
 .claude/
+
+# macOS system files
+.DS_Store
