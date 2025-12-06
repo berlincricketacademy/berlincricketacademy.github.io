@@ -17,13 +17,14 @@ This is a modern, responsive website built with pure HTML, CSS, and JavaScript. 
 
 ```
 BCA_Website/
-├── index.html          # Homepage with hero section, achievements, initiatives
-├── about.html          # About page with club history and information
-├── teams.html          # Teams information and details
+├── index.html          # Homepage with hero, achievements, Instagram feed
+├── about.html          # About page with history, management team, achievements
+├── teams.html          # Teams information and training schedules
 ├── fixtures.html       # Match schedules and fixtures
-├── memberships.html    # Membership plans and registration details
-├── gallery.html        # Photo gallery
-├── contact.html        # Contact information and form
+├── memberships.html    # Membership plans with match opportunities
+├── gallery.html        # Photo gallery with Instagram feed integration
+├── contact.html        # Contact information with training hours
+├── img/                # All website images (logos, photos, championships)
 ├── .gitignore          # Git ignore file (excludes .claude folder)
 └── README.md           # This file
 ```
@@ -72,26 +73,43 @@ tailwind.config = {
 - Compelling call-to-action
 - Responsive text sizing
 
-### 4. Instagram Slideshow
-- Auto-sliding photo carousel
-- Responsive breakpoints (4 slides on desktop, 2 on tablet, 1 on mobile)
-- Manual navigation with prev/next buttons
-- Hover effects on images
+### 4. Instagram Feed Integration
+- **Elfsight Instagram Feed Widget** - Auto-updates with latest Instagram posts
+- Integrated on homepage and gallery page
+- Custom CSS to hide hashtag titles
+- Responsive design across all devices
+- No manual updates required
 
-### 5. Timeline Component
+### 5. Photo Gallery
+- 12 actual BCA team and event photos
+- Responsive grid layout with hover effects
+- Includes championship photos, team photos, and program images
+- Browser-compatible JPG/JPEG/PNG formats
+
+### 6. Timeline Component
 - Visual timeline for achievements
 - Custom styled with circular markers and connecting lines
 - Color-coded with BCA brand colors
+- Includes all major achievements (2022-2025)
 
-### 6. Card-Based Layouts
+### 7. Card-Based Layouts
 - Hover effects with transform and shadow
 - Gradient backgrounds
 - Border accents using brand colors
 
-### 7. Statistics Cards
+### 8. Statistics Cards
 - Gradient backgrounds
 - Left border accent
 - Responsive grid layout
+
+### 9. Management Team Section
+- Expanded 5-person horizontal layout on about page
+- Compact, responsive design
+- Shows key team members with roles and certifications
+
+### 10. Affiliate Logos
+- Larger, more visible logos (DCB, ODCV, LSB, DOSB)
+- Maintains grid layout while improving visibility
 
 ## CSS Components
 
@@ -169,13 +187,16 @@ const ANNOUNCEMENTS_SHEET_NAME = 'Announcements';
 |-------|---------|------|------|------|
 | 🏏 Registration Open | Registration for 2025 season now open! | important | Yes | contact.html |
 
-### Image Placeholders
+### Images
 
-Replace placeholder images with actual images:
-- Hero background: Line 24 in `index.html`
-- Olympiastadion image: Line 254
-- Tour image: Line 261
-- Instagram slideshow: Lines 406-428
+All website images are located in the `img/` directory:
+- **Team Photos**: group-pic.jpg, kids.jpg, womens.jpeg, mens-group.JPG
+- **Championship Photos**: ecn-winners.jpg, ecn-runners.jpg, Prague champs.jpg
+- **Program Photos**: school-kids.png, school.png, softball.jpg, team-meeting.jpeg
+- **Logos**: bca-logo.svg, dcb.png, odcv.png, lsb.png, dosb.png
+- **Hero Background**: homepage.jpg
+
+Note: HEIC files (kids.HEIC, softball.HEIC) have been converted to JPG for browser compatibility.
 
 ### Social Media Links
 

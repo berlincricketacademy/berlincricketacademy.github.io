@@ -86,6 +86,11 @@
 
         .mobile-menu { display: none; }
         .mobile-menu.active { display: block; }
+
+        /* Hide Elfsight Instagram Feed hashtag title */
+        .eui-widget-title.es-widget-title.eapps-instagram-feed-title {
+            display: none !important;
+        }
         .page-hero {
             background: linear-gradient(135deg, rgba(153, 27, 27, 0.90) 0%, rgba(220, 20, 60, 0.85) 100%),
                         url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2000');
@@ -181,49 +186,73 @@
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&h=400&fit=crop" alt="Cricket Training">
+                    <img src="img/group-pic.jpg" alt="Berlin Cricket Academy Team Photo">
                     <div class="overlay">
                         <span class="text-white text-3xl">🔍</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=400&h=400&fit=crop" alt="Team Photo">
+                    <img src="img/ecn-winners.jpg" alt="European Cricket Series Winners">
                     <div class="overlay">
                         <span class="text-white text-3xl">🔍</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=400&h=400&fit=crop" alt="Cricket Match">
+                    <img src="img/ecn-runners.jpg" alt="European Cricket Series Runners-up">
                     <div class="overlay">
                         <span class="text-white text-3xl">🔍</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1587329310686-91414b8e3cb7?w=400&h=400&fit=crop" alt="Cricket Practice">
+                    <img src="img/Prague champs.jpg" alt="Prague Champions">
                     <div class="overlay">
                         <span class="text-white text-3xl">🔍</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1562077772-3bd90f14eec3?w=400&h=400&fit=crop" alt="Cricket Stadium">
+                    <img src="img/womens.jpeg" alt="BCA Women's Team">
                     <div class="overlay">
                         <span class="text-white text-3xl">🔍</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1593766788306-28561086694e?w=400&h=400&fit=crop" alt="Cricket Ball">
+                    <img src="img/kids.jpg" alt="BCA Kids Team">
                     <div class="overlay">
                         <span class="text-white text-3xl">🔍</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1580629905303-faaa03202631?w=400&h=400&fit=crop" alt="Cricket Bat">
+                    <img src="img/team-meeting.jpeg" alt="Team Meeting">
                     <div class="overlay">
                         <span class="text-white text-3xl">🔍</span>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=400&h=400&fit=crop" alt="Cricket Ground">
+                    <img src="img/IMG_5716.jpg" alt="BCA Cricket Action">
+                    <div class="overlay">
+                        <span class="text-white text-3xl">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/school-kids.png" alt="School Kids Cricket Program">
+                    <div class="overlay">
+                        <span class="text-white text-3xl">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/school.png" alt="School Cricket Initiative">
+                    <div class="overlay">
+                        <span class="text-white text-3xl">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/softball.jpg" alt="Softball Training">
+                    <div class="overlay">
+                        <span class="text-white text-3xl">🔍</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/homepage.jpg" alt="BCA Team at Olympiastadion">
                     <div class="overlay">
                         <span class="text-white text-3xl">🔍</span>
                     </div>
@@ -274,30 +303,21 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-4xl font-bold text-bca-dark mb-4">Latest Instagram Posts</h2>
             <div class="h-1 w-20 bg-bca-red mb-8"></div>
-            
+
             <div class="text-center mb-8">
                 <a href="https://www.instagram.com/berlincricketacademy/" target="_blank" class="inline-flex items-center text-bca-red font-bold text-xl hover:text-bca-dark transition">
                     <span class="text-3xl mr-2">📷</span> @berlincricketacademy
                 </a>
             </div>
 
-            <div class="bg-white p-8 rounded-lg shadow-lg text-center border-2 border-dashed border-bca-red">
-                <p class="text-bca-red font-bold mb-4">🔗 Instagram Feed Integration</p>
-                <p class="text-gray-600 text-sm mb-4">To display your actual Instagram posts, you can use one of these options:</p>
-                <div class="grid md:grid-cols-2 gap-4 text-left text-sm text-gray-500 max-w-2xl mx-auto">
-                    <div class="bg-gray-50 p-4 rounded">
-                        <p class="font-semibold text-gray-700 mb-2">Option 1: Elfsight Widget</p>
-                        <p>1. Go to elfsight.com</p>
-                        <p>2. Create Instagram Feed widget</p>
-                        <p>3. Copy embed code here</p>
-                    </div>
-                    <div class="bg-gray-50 p-4 rounded">
-                        <p class="font-semibold text-gray-700 mb-2">Option 2: SnapWidget</p>
-                        <p>1. Go to snapwidget.com</p>
-                        <p>2. Connect your Instagram</p>
-                        <p>3. Embed the widget code</p>
-                    </div>
-                </div>
+            <!-- Elfsight Instagram Feed Widget -->
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div class="elfsight-app-52eaf42c-62d8-49de-9ca1-df00f6b5acf6" data-elfsight-app-lazy></div>
+
+            <div class="text-center mt-8">
+                <a href="https://www.instagram.com/berlincricketacademy/" target="_blank" class="inline-block bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition shadow-lg">
+                    Follow on Instagram
+                </a>
             </div>
         </div>
     </section>

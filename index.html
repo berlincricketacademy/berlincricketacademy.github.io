@@ -240,6 +240,11 @@
                 opacity: 1;
             }
         }
+
+        /* Hide Elfsight Instagram Feed hashtag title */
+        .eui-widget-title.es-widget-title.eapps-instagram-feed-title {
+            display: none !important;
+        }
     </style>
 </head>
 <body class="bg-white">
@@ -322,7 +327,7 @@
                     </a>
                 </div>
                 <div class="rounded-lg overflow-hidden shadow-xl">
-                    <img src="img/group_pic.jpg" alt="Berlin Cricket Academy Team Photo" class="w-full h-auto object-cover">
+                    <img src="img/group-pic.jpg" alt="Berlin Cricket Academy Team Photo" class="w-full h-auto object-cover">
                 </div>
             </div>
 
@@ -404,6 +409,10 @@
                 </div>
                 <div>
                     <div class="timeline-item">
+                        <h3 class="text-2xl font-bold text-bca-dark mb-2">2023</h3>
+                        <p class="text-gray-700 font-semibold">🏆 European Cricket Series Runners (Men)</p>
+                    </div>
+                    <div class="timeline-item">
                         <h3 class="text-2xl font-bold text-bca-dark mb-2">2024</h3>
                         <p class="text-gray-700 font-semibold">🏆 East German Men's Association League Champions</p>
                     </div>
@@ -457,37 +466,9 @@
                 </a>
             </div>
 
-            <!-- Instagram Slideshow -->
-            <div class="instagram-slider shadow-xl">
-                <button class="slider-btn prev" onclick="slideInstagram(-1)">❮</button>
-                <div class="instagram-track" id="instagramTrack">
-                    <div class="instagram-slide">
-                        <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=400&h=400&fit=crop" alt="Cricket Training">
-                    </div>
-                    <div class="instagram-slide">
-                        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=400&h=400&fit=crop" alt="Team Photo">
-                    </div>
-                    <div class="instagram-slide">
-                        <img src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?w=400&h=400&fit=crop" alt="Cricket Match">
-                    </div>
-                    <div class="instagram-slide">
-                        <img src="https://images.unsplash.com/photo-1587329310686-91414b8e3cb7?w=400&h=400&fit=crop" alt="Cricket Practice">
-                    </div>
-                    <div class="instagram-slide">
-                        <img src="https://images.unsplash.com/photo-1562077772-3bd90f14eec3?w=400&h=400&fit=crop" alt="Cricket Stadium">
-                    </div>
-                    <div class="instagram-slide">
-                        <img src="https://images.unsplash.com/photo-1593766788306-28561086694e?w=400&h=400&fit=crop" alt="Cricket Ball">
-                    </div>
-                    <div class="instagram-slide">
-                        <img src="https://images.unsplash.com/photo-1580629905303-faaa03202631?w=400&h=400&fit=crop" alt="Cricket Bat">
-                    </div>
-                    <div class="instagram-slide">
-                        <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=400&h=400&fit=crop" alt="Cricket Ground">
-                    </div>
-                </div>
-                <button class="slider-btn next" onclick="slideInstagram(1)">❯</button>
-            </div>
+            <!-- Elfsight Instagram Feed Widget -->
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div class="elfsight-app-52eaf42c-62d8-49de-9ca1-df00f6b5acf6" data-elfsight-app-lazy></div>
 
             <div class="text-center mt-8">
                 <a href="https://www.instagram.com/berlincricketacademy/" target="_blank" class="inline-block bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition shadow-lg">
@@ -507,26 +488,26 @@
             
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div class="bg-white p-6 rounded-lg shadow-lg text-center card-hover border-t-4 border-bca-red">
-                    <div class="h-20 rounded mb-4 flex items-center justify-center">
-                        <img src="img/dcb.png" alt="German Cricket Board (DCB) Logo" class="max-h-20 w-auto object-contain">
+                    <div class="h-32 rounded mb-4 flex items-center justify-center">
+                        <img src="img/dcb.png" alt="German Cricket Board (DCB) Logo" class="max-h-32 w-auto object-contain">
                     </div>
                     <h3 class="text-lg font-bold text-bca-dark">German Cricket Board (DCB)</h3>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg text-center card-hover border-t-4 border-bca-red">
-                    <div class="h-20 rounded mb-4 flex items-center justify-center">
-                        <img src="img/odcv.png" alt="ODCV Logo" class="max-h-20 w-auto object-contain">
+                    <div class="h-32 rounded mb-4 flex items-center justify-center">
+                        <img src="img/odcv.png" alt="ODCV Logo" class="max-h-32 w-auto object-contain">
                     </div>
                     <h3 class="text-lg font-bold text-bca-dark">ODCV</h3>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg text-center card-hover border-t-4 border-bca-red">
-                    <div class="h-20 rounded mb-4 flex items-center justify-center">
-                        <img src="img/lsb.png" alt="LSB Logo" class="max-h-20 w-auto object-contain">
+                    <div class="h-32 rounded mb-4 flex items-center justify-center">
+                        <img src="img/lsb.png" alt="LSB Logo" class="max-h-32 w-auto object-contain">
                     </div>
                     <h3 class="text-lg font-bold text-bca-dark">LSB</h3>
                 </div>
                 <div class="bg-white p-6 rounded-lg shadow-lg text-center card-hover border-t-4 border-bca-red">
-                    <div class="h-20 rounded mb-4 flex items-center justify-center">
-                        <img src="img/dosb.png" alt="DOSB Logo" class="max-h-20 w-auto object-contain">
+                    <div class="h-32 rounded mb-4 flex items-center justify-center">
+                        <img src="img/dosb.png" alt="DOSB Logo" class="max-h-32 w-auto object-contain">
                     </div>
                     <h3 class="text-lg font-bold text-bca-dark">DOSB</h3>
                 </div>
