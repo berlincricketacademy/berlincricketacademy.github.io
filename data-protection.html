@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Protection & Privacy Policy - Berlin Cricket Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bca-red': '#DC143C',
+                        'bca-light': '#EF4444',
+                        'bca-dark': '#991B1B'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { scroll-behavior: smooth; }
+        .nav-link { transition: color 0.3s ease; color: #991B1B !important; font-weight: 600; }
+        .nav-link:hover { color: #EF4444 !important; }
+        .nav-link.active { color: #EF4444 !important; font-weight: 700; border-bottom: 2px solid #EF4444; }
+        .logo-section { transition: transform 0.3s ease; }
+        .logo-section:hover { transform: scale(1.05); }
+        .logo-section img { height: 68px; width: auto; }
+        nav { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important; }
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+        @media (max-width: 768px) {
+            .logo-section img { height: 52px; }
+        }
+    
+        /* Cookie Consent Banner Styles */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+            padding: 20px;
+            z-index: 9999;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(100%);
+            transition: transform 0.4s ease-out;
+        }
+        .cookie-consent.show {
+            transform: translateY(0);
+        }
+        .cookie-consent-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        @media (min-width: 768px) {
+            .cookie-consent-content {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+        .cookie-consent-text {
+            flex: 1;
+        }
+        .cookie-consent-text h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #f3f4f6;
+        }
+        .cookie-consent-text p {
+            font-size: 0.875rem;
+            color: #d1d5db;
+            line-height: 1.5;
+        }
+        .cookie-consent-text a {
+            color: #EF4444;
+            text-decoration: underline;
+        }
+        .cookie-consent-text a:hover {
+            color: #f87171;
+        }
+        .cookie-consent-buttons {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .cookie-btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+        .cookie-btn-accept {
+            background: #DC143C;
+            color: white;
+        }
+        .cookie-btn-accept:hover {
+            background: #991B1B;
+        }
+        .cookie-btn-decline {
+            background: transparent;
+            color: #d1d5db;
+            border: 1px solid #4b5563;
+        }
+        .cookie-btn-decline:hover {
+            background: #374151;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center" style="min-height: 5rem;">
+                <a href="index.html" class="logo-section flex items-center">
+                    <img src="img/bca-logo.svg" alt="Berlin Cricket Academy" class="h-16">
+                </a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="teams.html" class="nav-link">Teams</a>
+                    <a href="fixtures.html" class="nav-link">Fixtures</a>
+                    <a href="memberships.html" class="nav-link">Memberships</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <button class="md:hidden text-2xl" onclick="toggleMobileMenu()">☰</button>
+            </div>
+            <div id="mobile-menu" class="mobile-menu md:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="teams.html" class="nav-link">Teams</a>
+                    <a href="fixtures.html" class="nav-link">Fixtures</a>
+                    <a href="memberships.html" class="nav-link">Memberships</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-bca-dark text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Data Protection & Privacy Policy</h1>
+            <p class="text-xl text-gray-200">Your privacy is important to us</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="py-16">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12 space-y-8">
+
+                <!-- Last Updated -->
+                <div class="text-sm text-gray-500 border-b pb-4">
+                    <strong>Last Updated:</strong> January 2025
+                </div>
+
+                <!-- Introduction -->
+                <div>
+                    <h2 class="text-2xl font-bold text-bca-dark mb-4">1. Introduction</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        Berlin Cricket Academy ("BCA", "we", "us", or "our") is committed to protecting your personal data
+                        and respecting your privacy. This privacy policy explains how we collect, use, and protect your
+                        personal information in accordance with the General Data Protection Regulation (GDPR) and German
+                        data protection laws (BDSG).
+                    </p>
+                </div>
+
+                <!-- Data Controller -->
+                <div>
+                    <h2 class="text-2xl font-bold text-bca-dark mb-4">2. Data Controller</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">The data controller responsible for your personal data is:</p>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-gray-700"><strong>Berlin Cricket Academy e.V.</strong></p>
+                        <p class="text-gray-700">Berlin, Germany</p>
+                        <p class="text-gray-700">Email: info@berlincricket.de</p>
+                    </div>
+                </div>
+
+                <!-- Data We Collect -->
+                <div>
+                    <h2 class="text-2xl font-bold text-bca-dark mb-4">3. Data We Collect</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">We may collect and process the following personal data:</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                        <li><strong>Identity Data:</strong> Name, date of birth, gender</li>
+                        <li><strong>Contact Data:</strong> Email address, phone number, postal address</li>
+                        <li><strong>Membership Data:</strong> Membership type, payment history, participation records</li>
+                        <li><strong>Technical Data:</strong> IP address, browser type, device information (when using our website)</li>
+                        <li><strong>Usage Data:</strong> Information about how you use our website</li>
+                        <li><strong>Media Data:</strong> Photographs and videos taken at club events (with consent)</li>
+                    </ul>
+                </div>
+
+                <!-- Legal Basis -->
+                <div>
+                    <h2 class="text-2xl font-bold text-bca-dark mb-4">4. Legal Basis for Processing</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">We process your personal data based on the following legal grounds:</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                        <li><strong>Contract:</strong> To fulfill our membership agreement with you (Art. 6(1)(b) GDPR)</li>
+                        <li><strong>Consent:</strong> Where you have given explicit consent (Art. 6(1)(a) GDPR)</li>
+                        <li><strong>Legitimate Interest:</strong> For club administration and communication (Art. 6(1)(f) GDPR)</li>
+                        <li><strong>Legal Obligation:</strong> To comply with legal requirements (Art. 6(1)(c) GDPR)</li>
+                    </ul>
+                </div>
+
+                <!-- How We Use Data -->
+                <div>
+                    <h2 class="text-2xl font-bold text-bca-dark mb-4">5. How We Use Your Data</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">We use your personal data for:</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                        <li>Processing membership applications and renewals</li>
+                        <li>Communicating about training sessions, matches, and club events</li>
+                        <li>Managing team selections and match registrations</li>
+                        <li>Processing payments and maintaining financial records</li>
+                        <li>Complying with sports federation requirements (DCB, ODCV, LSB)</li>
+                        <li>Improving our website and services</li>
+                        <li>Sending newsletters (with your consent)</li>
+                    </ul>
+                </div>
+
+                <!-- Cookies -->
+                <div>
+                    <h2 class="text-2xl font-bold text-bca-dark mb-4">6. Cookies and Tracking</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">Our website uses cookies to enhance your experience:</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="p-3 border">Cookie Type</th>
+                                    <th class="p-3 border">Purpose</th>
+                                    <th class="p-3 border">Duration</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700">
+                                <tr>
+                                    <td class="p-3 border"><strong>Essential</strong></td>
+                                    <td class="p-3 border">Required for website functionality</td>
+                                    <td class="p-3 border">Session</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border"><strong>Preferences</strong></td>
+                                    <td class="p-3 border">Remember your cookie consent choice</td>
+                                    <td class="p-3 border">1 year</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border"><strong>Analytics</strong></td>
+                                    <td class="p-3 border">Help us understand website usage (if enabled)</td>
+                                    <td class="p-3 border">2 years</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 border"><strong>Third-Party</strong></td>
+                                    <td class="p-3 border">Instagram feed widget (Elfsight)</td>
+                                    <td class="p-3 border">Varies</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-gray-700 mt-4">You can manage your cookie preferences at any time using the cookie settings on our website.</p>
+                </div>
+
+                <!-- Data Sharing -->
+                <div>
+                    <h2 class="text-2xl font-bold text-bca-dark mb-4">7. Data Sharing</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">We may share your data with:</p>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2 ml-4">
+                        <li><strong>Sports Federations:</strong> DCB, ODCV, LSB for official registrations</li>
+                        <li><strong>Service Providers:</strong> Payment processors, email services</li>
+                        <li><strong>Legal Authorities:</strong> When required by law</li>
+                    </ul>
+                    <p class="text-gray-700 mt-4">We do not sell your personal data to third parties.</p>
+                </div>
+
+                <!-- Data Retention -->
+                <div>
+                    <h2 class="text-2xl font-bold text-bca-dark mb-4">8. Data Retention</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        We retain your personal data only for as long as necessary to fulfill the purposes for which it was
+                        collected. Membership data is retained for the duration of your membership plus 3 years. Financial
+                        records are retained for 10 years as required by German tax law.
+                    </p>
+                </div>
+
+                <!-- Your Rights -->
+                <div>
+                    <h2 class="text-2xl font-bold text-bca-dark mb-4">9. Your Rights Under GDPR</h2>
+                    <p class="text-gray-700 leading-relaxed mb-4">You have the following rights regarding your personal data:</p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-bca-red">
+                            <h3 class="font-bold text-bca-dark">Right of Access</h3>
+                            <p class="text-gray-600 text-sm">Request a copy of your personal data</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-bca-red">
+                            <h3 class="font-bold text-bca-dark">Right to Rectification</h3>
+                            <p class="text-gray-600 text-sm">Request correction of inaccurate data</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-bca-red">
+                            <h3 class="font-bold text-bca-dark">Right to Erasure</h3>
+                            <p class="text-gray-600 text-sm">Request deletion of your data ("right to be forgotten")</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-bca-red">
+                            <h3 class="font-bold text-bca-dark">Right to Restrict Processing</h3>
+                            <p class="text-gray-600 text-sm">Request limitation of data processing</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-bca-red">
+                            <h3 class="font-bold text-bca-dark">Right to Data Portability</h3>
+                            <p class="text-gray-600 text-sm">Receive your data in a portable format</p>
+                        </div>
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-bca-red">
+                            <h3 class="font-bold text-bca-dark">Right to Object</h3>
+                            <p class="text-gray-600 text-sm">Object to processing based on legitimate interest</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mt-4">
+                        To exercise any of these rights, please contact us at <a href="mailto:info@berlincricket.de" class="text-bca-red hover:underline">info@berlincricket.de</a>.
+                    </p>
+                </div>
+
+                <!-- Children's Privacy -->
+                <div>
+                    <h2 class="text-2xl font-bold text-bca-dark mb-4">10. Children's Privacy</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        As a cricket academy that welcomes children, we take extra care with minors' data. We require
+                        parental/guardian consent for members under 16 years of age. Parents/guardians can access,
+                        modify, or request deletion of their child's data at any time.
+                    </p>
+                </div>
+
+                <!-- Data Security -->
+                <div>
+                    <h2 class="text-2xl font-bold text-bca-dark mb-4">11. Data Security</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        We implement appropriate technical and organizational measures to protect your personal data
+                        against unauthorized access, alteration, disclosure, or destruction. This includes secure
+                        storage, access controls, and regular security reviews.
+                    </p>
+                </div>
+
+                <!-- Complaints -->
+                <div>
+                    <h2 class="text-2xl font-bold text-bca-dark mb-4">12. Complaints</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        If you believe we have not handled your personal data properly, you have the right to lodge a
+                        complaint with the Berlin Commissioner for Data Protection and Freedom of Information
+                        (Berliner Beauftragte für Datenschutz und Informationsfreiheit):
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg mt-4">
+                        <p class="text-gray-700">Berliner Beauftragte für Datenschutz und Informationsfreiheit</p>
+                        <p class="text-gray-700">Friedrichstr. 219, 10969 Berlin</p>
+                        <p class="text-gray-700">Website: <a href="https://www.datenschutz-berlin.de" class="text-bca-red hover:underline" target="_blank">www.datenschutz-berlin.de</a></p>
+                    </div>
+                </div>
+
+                <!-- Updates -->
+                <div>
+                    <h2 class="text-2xl font-bold text-bca-dark mb-4">13. Changes to This Policy</h2>
+                    <p class="text-gray-700 leading-relaxed">
+                        We may update this privacy policy from time to time. Any changes will be posted on this page
+                        with an updated revision date. We encourage you to review this policy periodically.
+                    </p>
+                </div>
+
+                <!-- Contact -->
+                <div class="bg-bca-dark text-white p-6 rounded-xl">
+                    <h2 class="text-2xl font-bold mb-4">Contact Us</h2>
+                    <p class="mb-4">If you have any questions about this privacy policy or our data practices, please contact us:</p>
+                    <p><strong>Email:</strong> info@berlincricket.de</p>
+                    <p><strong>Address:</strong> Berlin Cricket Academy e.V., Berlin, Germany</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-bca-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Berlin Cricket Academy</h4>
+                    <p class="text-gray-300 text-sm">Berlin's first cricket club for kids, women, and men. Cricket for All!</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="about.html" class="hover:text-bca-light transition">About Us</a></li>
+                        <li><a href="teams.html" class="hover:text-bca-light transition">Teams</a></li>
+                        <li><a href="memberships.html" class="hover:text-bca-light transition">Memberships</a></li>
+                        <li><a href="fixtures.html" class="hover:text-bca-light transition">Fixtures</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Legal</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="data-protection.html" class="hover:text-bca-light transition">Privacy Policy</a></li>
+                        <li><a href="data-protection.html#cookies" class="hover:text-bca-light transition">Cookie Policy</a></li>
+                        <li><a href="contact.html" class="hover:text-bca-light transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-2xl">📷</a>
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-2xl">▶️</a>
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-xl">f</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-bca-red pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 Berlin Cricket Academy. All rights reserved. Cricket for All.</p>
+                <p class="mt-2">
+                    <a href="data-protection.html" class="hover:text-bca-light transition">Data Protection & Privacy</a>
+                    <span class="mx-2">|</span>
+                    <a href="#" onclick="showCookieConsent(); return false;" class="hover:text-bca-light transition">Cookie Settings</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        }
+    </script>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="cookie-consent">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <h3>🍪 Cookie Consent</h3>
+                <p>We use cookies to enhance your browsing experience and analyze site traffic. By clicking "Accept All", you consent to our use of cookies. Read our <a href="data-protection.html">Data Protection & Privacy Policy</a> for more information.</p>
+            </div>
+            <div class="cookie-consent-buttons">
+                <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline</button>
+                <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ============================================
+        // COOKIE CONSENT SYSTEM (GDPR Compliant)
+        // ============================================
+        
+        function getCookieConsent() {
+            return localStorage.getItem('bca-cookie-consent');
+        }
+        
+        function setCookieConsent(value) {
+            localStorage.setItem('bca-cookie-consent', value);
+            localStorage.setItem('bca-cookie-consent-date', new Date().toISOString());
+        }
+        
+        function showCookieConsent() {
+            const banner = document.getElementById('cookie-consent');
+            if (banner) {
+                banner.classList.add('show');
+            }
+        }
+        
+        function hideCookieConsent() {
+            const banner = document.getElementById('cookie-consent');
+            if (banner) {
+                banner.classList.remove('show');
+            }
+        }
+        
+        function acceptCookies() {
+            setCookieConsent('accepted');
+            hideCookieConsent();
+            console.log('Cookies accepted');
+        }
+        
+        function declineCookies() {
+            setCookieConsent('declined');
+            hideCookieConsent();
+            console.log('Cookies declined');
+        }
+        
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = getCookieConsent();
+            if (!consent) {
+                setTimeout(showCookieConsent, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
