@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organization - Berlin Cricket Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bca-red': '#DC143C',
+                        'bca-light': '#EF4444',
+                        'bca-dark': '#991B1B'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { scroll-behavior: smooth; }
+        .nav-link { transition: color 0.3s ease; }
+        .nav-link:hover { color: #EF4444; }
+        .nav-link.active { color: #EF4444; font-weight: 600; }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.3);
+        }
+        /* Logo Section */
+        .logo-section {
+            background: transparent;
+            padding: 0;
+            margin-right: 0;
+            margin-left: 0;
+            border-radius: 0;
+            box-shadow: none;
+            transition: transform 0.3s ease;
+        }
+        .logo-section:hover {
+            transform: scale(1.05);
+        }
+        .logo-section img {
+            height: 68px;
+            width: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .logo-section img {
+                height: 52px;
+            }
+            nav .flex.justify-between.items-center {
+                min-height: 4rem !important;
+            }
+        }
+        /* Navigation styling */
+        nav {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+        }
+        .nav-link {
+            color: #991B1B !important;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+        .nav-link:hover {
+            color: #EF4444 !important;
+            transform: translateY(-1px);
+        }
+        .nav-link.active {
+            color: #EF4444 !important;
+            font-weight: 700;
+            border-bottom: 2px solid #EF4444;
+            padding-bottom: 2px;
+        }
+        nav button {
+            color: #991B1B !important;
+        }
+        #mobile-menu {
+            background: white;
+        }
+        #mobile-menu .nav-link {
+            color: #991B1B !important;
+            font-weight: 600;
+            font-size: 1.125rem;
+        }
+        .mobile-menu { display: none; }
+        .mobile-menu.active { display: block; }
+
+        /* Organization Structure Styles */
+        .org-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fef2f2 100%);
+            border-left: 4px solid #DC143C;
+        }
+        .vacant-card {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            border-left: 4px solid #9ca3af;
+        }
+        .section-header {
+            background: linear-gradient(135deg, #991B1B 0%, #DC143C 100%);
+        }
+
+        /* Cookie Consent Banner Styles */
+        .cookie-consent {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            color: white;
+            padding: 20px;
+            z-index: 9999;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(100%);
+            transition: transform 0.4s ease-out;
+        }
+        .cookie-consent.show {
+            transform: translateY(0);
+        }
+        .cookie-consent-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        @media (min-width: 768px) {
+            .cookie-consent-content {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+        .cookie-consent-text {
+            flex: 1;
+        }
+        .cookie-consent-text h3 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #f3f4f6;
+        }
+        .cookie-consent-text p {
+            font-size: 0.875rem;
+            color: #d1d5db;
+            line-height: 1.5;
+        }
+        .cookie-consent-text a {
+            color: #EF4444;
+            text-decoration: underline;
+        }
+        .cookie-consent-text a:hover {
+            color: #f87171;
+        }
+        .cookie-consent-buttons {
+            display: flex;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .cookie-btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+        }
+        .cookie-btn-accept {
+            background: #DC143C;
+            color: white;
+        }
+        .cookie-btn-accept:hover {
+            background: #991B1B;
+        }
+        .cookie-btn-decline {
+            background: transparent;
+            color: #d1d5db;
+            border: 1px solid #4b5563;
+        }
+        .cookie-btn-decline:hover {
+            background: #374151;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="bg-white text-bca-dark sticky top-0 z-50 shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center" style="min-height: 4.5rem;">
+                <!-- LOGO -->
+                <div class="logo-section">
+                    <a href="index.html">
+                        <img src="img/bca-logo.svg" alt="Berlin Cricket Academy">
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="about.html" class="nav-link">About</a>
+                    <a href="organization.html" class="nav-link active">Organization</a>
+                    <a href="teams.html" class="nav-link">Teams</a>
+                    <a href="fixtures.html" class="nav-link">Fixtures</a>
+                    <a href="memberships.html" class="nav-link">Memberships</a>
+                    <a href="gallery.html" class="nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="nav-link text-lg" title="Instagram">📷</a>
+                    <a href="#" class="nav-link text-lg" title="YouTube">▶️</a>
+                    <a href="#" class="nav-link text-lg" title="Facebook">f</a>
+                    <button class="md:hidden text-bca-light text-2xl" onclick="toggleMobileMenu()">☰</button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden pb-4">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="nav-link py-2">Home</a>
+                    <a href="about.html" class="nav-link py-2">About</a>
+                    <a href="organization.html" class="nav-link active py-2">Organization</a>
+                    <a href="teams.html" class="nav-link py-2">Teams</a>
+                    <a href="fixtures.html" class="nav-link py-2">Fixtures</a>
+                    <a href="memberships.html" class="nav-link py-2">Memberships</a>
+                    <a href="gallery.html" class="nav-link py-2">Gallery</a>
+                    <a href="contact.html" class="nav-link py-2">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-bca-dark to-bca-red text-white py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Organization</h1>
+            <p class="text-xl text-red-100">The people behind Berlin Cricket Academy</p>
+        </div>
+    </section>
+
+    <!-- Board of Directors -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-2xl font-bold">Board of Directors</h2>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-b-lg shadow-lg mb-12">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Founder & President -->
+                    <div class="org-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <!-- Photo placeholder: replace with <img src="img/members/mo.jpg" alt="Mohammed Musthafa" class="w-16 h-16 rounded-full object-cover"> -->
+                            <div class="w-16 h-16 bg-bca-red rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                MM
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-bca-dark">Mohammed Musthafa</h3>
+                                <p class="text-bca-red font-semibold">Founder & President</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vice-President -->
+                    <div class="org-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <!-- Photo placeholder: replace with <img src="img/members/james.jpg" alt="James Poulet" class="w-16 h-16 rounded-full object-cover"> -->
+                            <div class="w-16 h-16 bg-bca-red rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                JP
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-bca-dark">James Poulet</h3>
+                                <p class="text-bca-red font-semibold">Vice-President</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Committees -->
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-2xl font-bold">Committees</h2>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-b-lg shadow-lg mb-12">
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Finance -->
+                    <div class="vacant-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gray-400 rounded-full flex items-center justify-center text-white text-2xl">
+                                💰
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-600">Finance</h3>
+                                <p class="text-gray-500 font-semibold italic">Position Vacant</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sportwart -->
+                    <div class="org-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <!-- Photo placeholder: replace with <img src="img/members/sudheesh.jpg" alt="Sudheesh Sureshkumar" class="w-16 h-16 rounded-full object-cover"> -->
+                            <div class="w-16 h-16 bg-bca-red rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                SS
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-bca-dark">Sudheesh Sureshkumar</h3>
+                                <p class="text-bca-red font-semibold">Sportwart</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Youth Officer -->
+                    <div class="org-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <!-- Photo placeholder: replace with <img src="img/members/gokkulraj.jpg" alt="Gokkulraj V P" class="w-16 h-16 rounded-full object-cover"> -->
+                            <div class="w-16 h-16 bg-bca-red rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                GV
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-bca-dark">Gokkulraj V P</h3>
+                                <p class="text-bca-red font-semibold">Youth Officer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Women's Officer -->
+                    <div class="org-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <!-- Photo placeholder: replace with <img src="img/members/ayesha.jpg" alt="Ayesha K" class="w-16 h-16 rounded-full object-cover"> -->
+                            <div class="w-16 h-16 bg-bca-red rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                AK
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-bca-dark">Ayesha K</h3>
+                                <p class="text-bca-red font-semibold">Women's Officer</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="org-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <!-- Photo placeholder: replace with <img src="img/members/siva.jpg" alt="Siva Rajendran" class="w-16 h-16 rounded-full object-cover"> -->
+                            <div class="w-16 h-16 bg-bca-red rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                SR
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-bca-dark">Siva Rajendran</h3>
+                                <p class="text-bca-red font-semibold">Social Media</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Auditor 1 -->
+                    <div class="vacant-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gray-400 rounded-full flex items-center justify-center text-white text-2xl">
+                                📋
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-600">Auditor 1</h3>
+                                <p class="text-gray-500 font-semibold italic">Position Vacant</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Auditor 2 -->
+                    <div class="vacant-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 bg-gray-400 rounded-full flex items-center justify-center text-white text-2xl">
+                                📋
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-600">Auditor 2</h3>
+                                <p class="text-gray-500 font-semibold italic">Position Vacant</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Coaches Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-2xl font-bold">Coaches</h2>
+            </div>
+            <div class="bg-white p-6 rounded-b-lg shadow-lg mb-12">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Coach 1 -->
+                    <div class="org-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <!-- Photo placeholder: replace with <img src="img/members/mo.jpg" alt="Mohammed Musthafa" class="w-16 h-16 rounded-full object-cover"> -->
+                            <div class="w-16 h-16 bg-bca-red rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                MM
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-bca-dark">Mohammed Musthafa</h3>
+                                <p class="text-bca-red font-semibold">ICC Level 2 Coach</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coach 2 -->
+                    <div class="org-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <!-- Photo placeholder: replace with <img src="img/members/gokkulraj.jpg" alt="Gokkulraj V P" class="w-16 h-16 rounded-full object-cover"> -->
+                            <div class="w-16 h-16 bg-bca-red rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                GV
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-bca-dark">Gokkulraj V P</h3>
+                                <p class="text-bca-red font-semibold">ICC Level 1 Coach</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Coach 3 -->
+                    <div class="org-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <!-- Photo placeholder: replace with <img src="img/members/siva.jpg" alt="Siva Rajendran" class="w-16 h-16 rounded-full object-cover"> -->
+                            <div class="w-16 h-16 bg-bca-red rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                SR
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-bca-dark">Siva Rajendran</h3>
+                                <p class="text-bca-red font-semibold">ICC Level 1 Coach</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Umpires Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-header text-white p-4 rounded-t-lg">
+                <h2 class="text-2xl font-bold">Umpires</h2>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-b-lg shadow-lg mb-12">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Umpire 1 -->
+                    <div class="org-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <!-- Photo placeholder: replace with <img src="img/members/mo.jpg" alt="Mohammed Musthafa" class="w-16 h-16 rounded-full object-cover"> -->
+                            <div class="w-16 h-16 bg-bca-red rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                MM
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-bca-dark">Mohammed Musthafa</h3>
+                                <p class="text-bca-red font-semibold">ICC Level 3 Umpire</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Umpire 2 -->
+                    <div class="org-card p-6 rounded-lg shadow">
+                        <div class="flex items-center space-x-4">
+                            <!-- Photo placeholder: replace with <img src="img/members/gokkulraj.jpg" alt="Gokkulraj V P" class="w-16 h-16 rounded-full object-cover"> -->
+                            <div class="w-16 h-16 bg-bca-red rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                                GV
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-bca-dark">Gokkulraj V P</h3>
+                                <p class="text-bca-red font-semibold">ICC Level 1 Umpire</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interested in Joining? -->
+            <div class="mt-12 bg-bca-dark text-white p-8 rounded-lg shadow-xl text-center">
+                <h3 class="text-2xl font-bold mb-4">Interested in Contributing?</h3>
+                <p class="text-gray-200 mb-6">We have open positions for Finance, Auditor, Coaching, and Umpiring roles. If you're passionate about cricket and want to help grow our club, we'd love to hear from you!</p>
+                <a href="contact.html" class="inline-block bg-white text-bca-red font-bold py-3 px-8 rounded-lg hover:bg-red-50 transition shadow-lg">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-bca-dark text-white py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold text-bca-light mb-4">Berlin Cricket Academy</h3>
+                    <p class="text-gray-300 text-sm">Building the future of cricket in Germany through excellence and inclusion.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="about.html" class="hover:text-bca-light transition">About Us</a></li>
+                        <li><a href="organization.html" class="hover:text-bca-light transition">Organization</a></li>
+                        <li><a href="teams.html" class="hover:text-bca-light transition">Teams</a></li>
+                        <li><a href="fixtures.html" class="hover:text-bca-light transition">Fixtures</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Resources</h4>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li><a href="memberships.html" class="hover:text-bca-light transition">Memberships</a></li>
+                        <li><a href="gallery.html" class="hover:text-bca-light transition">Gallery</a></li>
+                        <li><a href="contact.html" class="hover:text-bca-light transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-bca-light">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-2xl">📷</a>
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-2xl">▶️</a>
+                        <a href="#" class="text-gray-300 hover:text-bca-light transition text-xl">f</a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-bca-red pt-6 text-center text-gray-400 text-sm">
+                <p>&copy; 2025 Berlin Cricket Academy. All rights reserved. Cricket for All.</p>
+                <p class="mt-2">
+                    <a href="data-protection.html" class="hover:text-bca-light transition">Data Protection & Privacy</a>
+                    <span class="mx-2">|</span>
+                    <a href="#" onclick="showCookieConsent(); return false;" class="hover:text-bca-light transition">Cookie Settings</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-consent" class="cookie-consent">
+        <div class="cookie-consent-content">
+            <div class="cookie-consent-text">
+                <h3>🍪 Cookie Consent</h3>
+                <p>We use cookies to enhance your browsing experience and analyze site traffic. By clicking "Accept All", you consent to our use of cookies. Read our <a href="data-protection.html">Data Protection & Privacy Policy</a> for more information.</p>
+            </div>
+            <div class="cookie-consent-buttons">
+                <button class="cookie-btn cookie-btn-decline" onclick="declineCookies()">Decline</button>
+                <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('active');
+        }
+
+        // ============================================
+        // COOKIE CONSENT SYSTEM (GDPR Compliant)
+        // ============================================
+
+        function getCookieConsent() {
+            return localStorage.getItem('bca-cookie-consent');
+        }
+
+        function setCookieConsent(value) {
+            localStorage.setItem('bca-cookie-consent', value);
+            localStorage.setItem('bca-cookie-consent-date', new Date().toISOString());
+        }
+
+        function showCookieConsent() {
+            const banner = document.getElementById('cookie-consent');
+            if (banner) {
+                banner.classList.add('show');
+            }
+        }
+
+        function hideCookieConsent() {
+            const banner = document.getElementById('cookie-consent');
+            if (banner) {
+                banner.classList.remove('show');
+            }
+        }
+
+        function acceptCookies() {
+            setCookieConsent('accepted');
+            hideCookieConsent();
+            console.log('Cookies accepted');
+        }
+
+        function declineCookies() {
+            setCookieConsent('declined');
+            hideCookieConsent();
+            console.log('Cookies declined');
+        }
+
+        // Check consent on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const consent = getCookieConsent();
+            if (!consent) {
+                setTimeout(showCookieConsent, 1000);
+            }
+        });
+    </script>
+</body>
+</html>
